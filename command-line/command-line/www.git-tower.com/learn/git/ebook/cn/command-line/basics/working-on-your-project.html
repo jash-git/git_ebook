@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/cn/command-line/basics/working-on-your-project by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:00:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>工作在你的项目上</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="working-on-your-project.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="工作在你的项目上" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="工作在你的项目上" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__cn__command-line">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, '工作在你的项目上 - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, '工作在你的项目上 - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, '工作在你的项目上 - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">前言</a></h4><h4><a class="active" href="what-is-version-control.html#start">Part 1 - 基础知识</a></h4><h6><a  href="what-is-version-control.html#start">什么是版本控制？</a></h6><h6><a  href="why-use-version-control.html#start">为什么要使用版本控制系统？</a></h6><h6><a  href="getting-ready.html#start">准备工作</a></h6><h6><a  href="basic-workflow.html#start">基本工作流程</a></h6><h6><a  href="starting-with-an-unversioned-project.html#start">从一个未被纳入版本控制的项目开始</a></h6><h6><a  href="starting-with-a-remote-project.html#start">从一个已被纳入版本控制的项目开始</a></h6><h6><a class="active" href="working-on-your-project.html#start">工作在你的项目上</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - 分支与合并</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">分支可以改变你的生命</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">在分支上工作</a></h6><h6><a  href="../branching-merging/stashing.html#start">暂时保存更改</a></h6><h6><a  href="../branching-merging/checkout.html#start">签出一个本地分支</a></h6><h6><a  href="../branching-merging/merging.html#start">合并改动</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">分支的工作流程</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - 远程仓库</a></h4><h6><a  href="../remote-repositories/introduction.html#start">远程仓库</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">连接一个远程仓库</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">查看远程数据</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">整合远程的改动</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">发布一个本地分支</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">删除分支</a></h6></div><div class="rightcol"><h4><a  href="../advanced-topics/undoing-things.html#start">Part 4 - 高级应用</a></h4><h6><a  href="../advanced-topics/undoing-things.html#start">撤销操作</a></h6><h6><a  href="../advanced-topics/diffs.html#start">用 diff 检查改动</a></h6><h6><a  href="../advanced-topics/merge-conflicts.html#start">处理合并冲突</a></h6><h6><a  href="../advanced-topics/rebase.html#start">Rebase 代替合并</a></h6><h6><a  href="../advanced-topics/submodules.html#start">子模块</a></h6><h6><a  href="../advanced-topics/git-flow.html#start">git-flow 的工作流程</a></h6><h6><a  href="../advanced-topics/ssh-public-keys.html#start">使用 SSH 公钥验证</a></h6><h4><a  href="../tools-services/desktop-guis.html#start">Part 5 - 工具与服务</a></h4><h6><a  href="../tools-services/desktop-guis.html#start">桌面应用程序</a></h6><h6><a  href="../tools-services/diff-merge-tools.html#start">比较和整合工具</a></h6><h6><a  href="../tools-services/code-hosting.html#start">代码托管服务</a></h6><h6><a  href="../tools-services/learning-resources.html#start">更多学习资源</a></h6><h4><a  href="../appendix/best-practices.html#start">附录</a></h4><h6><a  href="../appendix/best-practices.html#start">版本控制的最佳实践</a></h6><h6><a  href="../appendix/command-line-101.html#start">命令 101</a></h6><h6><a  href="../appendix/from-subversion-to-git.html#start">从 Subversion 过渡到 Git</a></h6><h6><a  href="../appendix/why-git.html#start">为什么选择 Git？</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <a href="https://www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/working-on-your-project">Desktop GUI</a> <span>|</span> <strong>Command Line</strong>&nbsp;&nbsp;&nbsp; Language: <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/basics/working-on-your-project">EN</a> <span>|</span> <strong>CN</strong>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>工作在你的项目上</h1>
+<p>无论是建立一个全新的本地仓库（local repository）或是克隆一个远程仓库（remote repository）到本地计算机，这两者并没有多大的区别。现在在你的计算机上已经拥有了一个 Git 本地仓库了。这也就意味着你可以在这个项目上开始你的工作了，使用任何一个你常用的编辑器来完成对项目文件的修改、创建、删除、移动、拷贝或者是重命名。</p>
+<div class="box concept">
+<h5>概念</h5>
+<h4>文件的状态</h4>
+<p>一般情况下在 Git 中文件有两种状态：<br><ul></p>
+<li>
+<strong>未被追踪的文件（untracked）</strong>： 如果这个文件还未被纳入版本控制系统中，我们称之为“未被追踪的文件”。这就表示版本控制系统不能监视或者追踪它的改动。一般情况下未被追踪的文件会是那些新建的文件，或者是那些没有被纳入版本控制系统中的忽略文件。</li>
+<li>
+<strong>已追踪的文件（tracked）</strong>： 所有那些已经被纳入版本控制系统的项目文件我们称之为“已被追踪的文件”。 Git 会监视它的任何改动，并且你可以提交或放弃对它修改。</li>
+<p></ul></p>
+</div>
+<h2>暂存区（Staging Area）</h2>
+<p>当你完成了对项目文件的改动后，你想要保存这个改动到你的项目中去。换句话说，你想要提交你在这些已追踪文件 （tracked files）上的改动。</p>
+<div class="box rule">
+<h5>黄金法则</h5>
+<h4>No. 1: 一次提交只对映一个相关的改动</h4>
+<p>当你想要进行提交时，非常重要的一点就是，它只能包含一个相关的改动。也就是说，不要在一次提交中包含一些和提交目的无关的改动，每一种不同的改动要打包在不同的提交中。比如，在一次提交中既添加了一个新的功能（例如：用户注册功能），又包括了对一些错误的修复（例如：修复了Bug#122）：</p>
+<ul><li>理解这些复杂的提交对于开发团队里的其他成员来说是非常困难的。可能过了一段时间连你自己也糊涂了。你的队友不得不先要搞明白这个错误，弄清楚你为什么要同时修复它，之后才能试图了解这个新添加的用户注册功能。</li>
+    <li>不可能复原或者撤销其中一个改动。试想一下，那个新添加的用户注册功能可能存在很严重的错误，你想撤销它但是你又不想撤销那个修复错误的改动。你该怎么办呢？</li>
+</ul>
+<p>也就是说，一次提交一定要包括一个且仅仅只能包括一个和提交目的相对映的改动：修复两个错误（最起码的）你要进行两次不同的提交。或者当开发一个新的非常庞大的功能时，你必须要把它分成几个小的并且在逻辑上有意义的提交，这样做可以有效地减少产生错误的可能性。<br><br />
+这种小的提交可以让开发团队的其他成员更好地理解这个改动。一旦发现这个改动有问题，就可以非常简单地撤销，而不会影响到其它的功能。</p>
+</div>
+<p>然而，当你专注于在你的项目开发中时，你不可能保证你的每次改动都只对应一个目的，因为你总是在多个方面同时工作的。</p>
+<p>这就须要引入一个新的概念 “暂存区（Staging Area）”，这是一个 Git 中最强大的功能，而且也非常好用。它可以让你来确定哪些修改将被打包在下次提交中。因为在 Git 中并不是简单的把每一个改动后的文件都自动打包起来的。相反，每一次提交打包都要 “手动完成”，哪些改动需要被打包在下次提交中都需要你自己决定，是否需要 “添加到暂存区域” 或者简单的说 “被暂存”。</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/cn/command-line/basics/working-on-your-project/452967006-1570000299/staging-area-file-status.png" title="在版本控制系统中一个文件有多种状态" width="690"></figure>
+<!---
+Translation reference for image
+Working Copy-> 工作副本
+Staging Area -> 暂存区
+Local Repository -> 本地仓库
+Your Project's Files -> 你的项目文件
+Git watches tracked files for new local modifications... -> Git 监视那些跟踪文件在本地的改动
+Changes included in the Next Commit-> 打包改动到下次提交
+The ".git" Folder-> ".git" 目录
+Tracked(and modified)-> 被跟踪(并被改动)
+If a file was modified since it was last committed, you can stage & commit these changes-> 如果一个文件在上次提交后又被改动过，你可以暂存并提交改动
+stage-> 暂存
+Changes that were added to the Staging Area will be included in the next commit->已经被暂存的改动将被打包到下次提交中
+commit-> 提交
+All changes contained in a commit are saved in the local repository as a new revision-> 所有被打包在提交中的改动将被当作一个新的版本保存到本地仓库中
+Changes that are not staged will not be committed & remain as local changes until you stage & commit or discard them->未被暂存打包的本地改动不会被提交。它只是一个本地改动，你随时可以暂存提交或是撤销它。
+Untracked->未被跟踪
+If a file was modified since it was last committed, you can stage & commit these changes-> 如果一个文件在上次提交后又被改动过，你可以暂存并提交改动
+-->
+<h2>得到所有的改动的详情</h2>
+<p>让我们来看看到目前为止都已经完成了什么。为了得到你在上一次提交后的所有改动详情，你可以简单地使用这个命令 “git status”：</p>
+<pre>
+<code><span class="cli-prompt">$ git status</span>
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm &lt;file&gt;... " to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working
+#    directory)
+#
+#       <span class="cli-red">modified:   css/about.css</span>
+#       <span class="cli-red">modified:   css/general.css</span>
+#       <span class="cli-red">deleted:    error.html</span>
+#       <span class="cli-red">modified:   imprint.html</span>
+#       <span class="cli-red">modified:   index.html</span>
+#
+# Untracked files:
+#    (use "git add &lt;file&gt;..." to include in what will be committed)
+#       <span class="cli-red">new-page.html</span>
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></pre>
+<p>值得庆幸的是，Git 给我们提供了一个相当详细的总结，其中包括了三个主类别： </p>
+<ul>
+<li>“Changes not staged for commit” 改动的文件，但没有打包在下次提交中。</li>
+<li>“Changes to be committed” 改动的文件，并且已打包在下次提交中。</li>
+<li>“Untracked files” 未被追踪的文件。</li>
+</ul>
+<h2>准备开始提交</h2>
+<p>现在是时候来提交那些改动到暂存区（Staging Area）里去了，使用 “git add” 命令：</p>
+<pre><code>$ git add new-page.html index.html css/*</code></pre>
+<p>以上命名表示，我们添加一个新的文件　“new-page.html”，并且提交对文件　“index.html”　和在目录　“css”　下所有的改动到暂存区。如果我们想把文件　“error.html”　从版本控制中移除掉，我们必须使用　“git rm”　来完成它：</p>
+<pre><code>$ git rm error.html</code></pre>
+<p>让我们再次使用 “git status” 命令来查看一下详情列表：</p>
+<pre>
+<code><span class="cli-prompt">$ git status</span>
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
+#
+#       <span class="cli-green">modified:   css/about.css</span>
+#       <span class="cli-green">modified:   css/general.css</span>
+#       <span class="cli-green">deleted:    error.html</span>
+#       <span class="cli-green">modified:   index.html</span>
+#       <span class="cli-green">new file:   new-page.html</span>
+#
+# Changes not staged for commit:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working 
+#    directory)
+#
+#       <span class="cli-red">modified:   imprint.html</span>
+#
+</code></pre>
+<p>假设对文件 “imprint.html” 的改动和其他的改动没有任何联系，我们有意地不把这个文件添加到暂存区域中，那就表示，它不会被打包在下次提交中。对它来说现在仅仅是一个本地修改。我们可以继续对它进行工作，可能在以后的某个时间再去提交它。</p>
+<h2>提交你的工作</h2>
+<p>有了精心准备好的暂存区后，在提交之前还剩下一件事，那就是注释这次提交。</p>
+<div class="box rule">
+<h5>黄金法则</h5>
+<h4>No. 2: 高质量的提交注释</h4>
+<p>花一点时间写一个好的提交注释是非常值得的，这样可以让开发团队的其他成员非常容易地明白你做这次提交的目的和你的改动（过了一段时间对你自己也有帮助）。<br />
+<br><br />
+针对你的改动写一个简短的注释标题（原则上不要超过50个字符），然后使用一个空行来分隔注释的内容。注释的内容要尽可能的详细并且要能回答以下几个问题：为什么要做这次修改？与上一个版本相比你到底改动了什么？</p>
+</div>
+<p>“git commit” 命令将提交你的修改：</p>
+<pre><code>$ git commit -m "Implement the new login box"</code></pre>
+<p>如果你有一个很长的提交注释，并且注释中包含很多段落，那你就不需要使用 “-m” 参数了，Git 会为你打开一个文本编辑器（具体打开哪个文本编辑器，你可以在 “core.editor” 设置它）。</p>
+<div class="box concept">
+<h5>概念</h5>
+<h4>什么才是一个好的提交</h4>
+<p>一个高质量的手动提交对你的项目和你自己是非常有意义的。什么才是一个好的提交呢？在这里有一些基本的原则：</p>
+<ol><li>提交要仅仅对应一个相关的改动<br>
+首先，一次提交应该仅仅只对应一个相关的改动。不要把那些互相毫无关联的改动打包在同一次提交中。如果这次提交出现了什么问题，解决和撤销它将是非常困难的。
+</li>
+<li>
+完整的提交<br>
+千万不要提交那些没有完全完成的改动。如果你想要临时保存一下你当前的工作，例如一个类似于剪贴板 （clipboard） 的功能，你可以使用 Git 提供的 “Stash” 功能（这个功能我们将在本书之后的章节为大家介绍）。但是一定不要直接提交它。
+</li>
+<li>
+提交前测试<br>
+当你提交你的改动时，不要理所当然地认为你的改动永远正确。在你提交你的改动到你的仓库前，进行有效的测试是非常重要的。
+</li>
+<li>
+高质量的提交注释<br>
+一次高质量的提交需要一个好注释。请参考本章之前的章节 “高质量的提交注释”。
+</li>
+</ol>
+<p>最后，你须要养成一个<b>频繁地</b>进行提交的习惯。这样做将自然而然的让你避免一个很庞大的提交，并且使这些提交可以更好只对映一个相关的改动。</p>
+</div>
+<h2>检查的提交历史</h2>
+<p>Git 会记录对项目改动的所有提交。特别是当与其他团队开发人员协同开发时。及时地查看那些最新的提交并理解它是非常重要的。</p>
+<div class="box note">
+<h5>注释</h5>
+<p>在本书之后的章节 “<a href="../remote-repositories/introduction.html">通过远程仓库共享工作</a>”，我们将向你详细介绍如何同团队的其他开发人员进行数据交换。</p>
+</div>
+<p>显示在项目中所有的提交历史记录可以使用 “git log” 命令：</p>
+<pre><code>$ git log</code></pre>
+<p>所有在这个项目中的提交将按时间顺序显示出来，最新的提交会出现在最上面。如果说所有的提交历史记录不能完全显示在一个屏幕中，在命名行界面的最下方会显示一个冒号 （“:”）。这时你可以使用空格键来跳转到下一页，或是使用 “q” 键退出这个界面。</p>
+<pre>
+<code>commit 2dfe283e6c81ca48d6edc1574b1f2d4d84ae7fa1
+Author: Tobias Günther &lt;support@learn-git.com&gt;
+Date: Fri Jul 26 10:52:04 2013 +0200
+
+    Implement the new login box
+
+commit 2b504bee4083a20e0ef1e037eea0bd913a4d56b6
+Author: Tobias Günther &lt;support@learn-git.com&gt;
+Date: Fri Jul 26 10:05:48 2013 +0200
+
+    Change headlines for about and imprint
+
+commit 0023cdddf42d916bd7e3d0a279c1f36bfc8a051b
+Author: Tobias Günther &lt;support@learn-git.com&gt;
+Date: Fri Jul 26 10:04:16 2013 +0200
+
+    Add simple robots.txt 
+</code></pre>
+<p>每个提交记录都包括（除其他事项外）如下的元数据（metadata）：</p>
+<ul>
+<li>Commit Hash</li>
+<li>Author Name &amp; Email （提交人的姓名和电子邮箱）</li>
+<li>Date （日期）</li>
+<li>Commit Message （提交注释）</li>
+</ul>
+<div class="box glossary">
+<h5>名词解释</h5>
+<h4>The Commit Hash</h4>
+<p>每一个提交都拥有一个唯一的 ID ：这个40位字符的校验码我们称之为 “commit hash”。在那些集中式的版本控制系统中（例如： Subversion， CVS...）会使用一个依次递加的版本号码。这样虽然简单，但是它却不能被使用在 Git 这样的分布式版本控制系统中。原因就是在于，在 Git 中每个人的工作都是并行的，改动的 <b> 提交 </b> 都是 <b> 离线的 </b> ，也就是说提交时并不需要连接到远程仓库。在这种情况下，远程仓库就不能确定哪个是第5次提交， 而哪个是在它之后的第6次提交。</p>
+<p>在大多数项目中，这个哈希编码的前七位字符就已经能足够代表一个唯一的提交ID了，一般我们都会用这个简短的7位 ID 来代表一个提交。</p>
+</div>
+<p>除了这些元数据（metadata），Git 也可以显示出提交的更详细的内容。在 “git log” 命令后使用 “-p” 参数来显示一些更多的提交记录详情：</p>
+<pre>
+<code><span class="cli-prompt">$ git log -p</span>
+commit 2dfe283e6c81ca48d6edc1574b1f2d4d84ae7fa1
+Author: Tobias Günther &lt;support@learn-git.com&gt;
+Date: Fri Jul 26 10:52:04 2013 +0200
+
+    Implement the new login box
+
+diff --git a/css/about.css b/css/about.css
+index e69de29..4b5800f 100644
+--- a/css/about.css
++++ b/css/about.css
+@@ -0,0 +1,2 @@
++h1 {
++  line-height:30px; }
+\ No newline at end of file
+di.ff --git a/css/general.css b/css/general.css
+index a3b8935..d472b7f 100644
+--- a/css/general.css
++++ b/css/general.css
+@@ -21,7 +21,8 @@ body {
+
+ h1, h2, h3, h4, h5 {
+   color:#ffd84c;
+-  font-family: "Trebuchet MS", "Trebuchet"; }
++  font-family: "Trebuchet MS", "Trebuchet";
++  margin-bottom:0px; }
+
+ p {
+   margin-bottom:6px;}
+diff --git a/error.html b/error.html
+deleted file mode 100644
+index 78alc33..0000000
+--- a/error.html
++++ /dev/null
+@@ -1,43 +0,0 @@
+- &lt;html&gt;
+- 
+-   &lt;head&gt;
+-     &lt;title&gt;Tower :: Imprint&lt;/title&gt;
+-     &lt;link rel="shortcut icon" href="img/favicon.ico" /&gt;
+-     &lt;link type="text/css" href="css/general.css" /&gt;
+-   &lt;/head&gt;
+-
+</code></pre>
+<p>在本书之后的章节 "<a href="../advanced-topics/diffs.html">使用diffs检查改动的详情</a>", 我们将会来一起学习这些输出内容的具体含义。</p>
+<h2>值得庆祝的时刻</h2>
+<p>祝贺你！你刚刚掌握了 Git 版本控制系统中的最基本步骤！休息一下，在我们开始下一步的学习之前先来干杯啤酒。</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="starting-with-a-remote-project.html#start">克隆一个远程项目</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    <a href="../branching-merging/branching-can-change-your-life.html#start">: Part 2 - 分支与合并</a>  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/cn/command-line/basics/working-on-your-project/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/cn/command-line/basics/working-on-your-project by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:00:16 GMT -->
+</html>

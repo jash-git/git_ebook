@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/rebase by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rebase as an Alternative to Merge</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="rebase.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="Rebase as an Alternative to Merge" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="Rebase as an Alternative to Merge" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__en__desktop-gui">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, 'Rebase as an Alternative to Merge - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, 'Rebase as an Alternative to Merge - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, 'Rebase as an Alternative to Merge - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">Introduction</a></h4><h4><a  href="../basics/what-is-version-control.html#start">Part 1 - The Basics</a></h4><h6><a  href="../basics/what-is-version-control.html#start">What is Version Control?</a></h6><h6><a  href="../basics/why-use-version-control.html#start">Why Use Version Control?</a></h6><h6><a  href="../basics/getting-ready.html#start">Getting Ready</a></h6><h6><a  href="../basics/basic-workflow.html#start">The Basic Workflow</a></h6><h6><a  href="../basics/starting-with-an-unversioned-project.html#start">Starting with an Unversioned Project</a></h6><h6><a  href="../basics/starting-with-a-remote-project.html#start">Starting with an Existing Project</a></h6><h6><a  href="../basics/working-on-your-project.html#start">Working on Your Project</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - Branching &amp; Merging</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">Branching can Change Your Life</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">Working with Branches</a></h6><h6><a  href="../branching-merging/stashing.html#start">Saving Changes Temporarily</a></h6><h6><a  href="../branching-merging/checkout.html#start">Checking Out a Local Branch</a></h6><h6><a  href="../branching-merging/merging.html#start">Merging Changes</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">Branching Workflows</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - Sharing Work via Remote Repositories</a></h4><h6><a  href="../remote-repositories/introduction.html#start">Introduction to Remote Repositories</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">Connecting a Remote Repository</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">Inspecting Remote Data</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">Integrating Remote Changes</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">Publishing a Local Branch</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">Deleting Branches</a></h6></div><div class="rightcol"><h4><a class="active" href="undoing-things.html#start">Part 4 - Advanced Topics</a></h4><h6><a  href="undoing-things.html#start">Undoing Things</a></h6><h6><a  href="diffs.html#start">Inspecting Changes with Diffs</a></h6><h6><a  href="merge-conflicts.html#start">Dealing with Merge Conflicts</a></h6><h6><a class="active" href="rebase.html#start">Rebase as an Alternative to Merge</a></h6><h6><a  href="submodules.html#start">Submodules</a></h6><h6><a  href="git-flow.html#start">Workflows with git-flow</a></h6><h6><a  href="git-lfs.html#start">Handling Large Files with LFS</a></h6><h6><a  href="ssh-public-keys.html#start">Authentication with SSH Public Keys</a></h6><h4><a  href="../tools-services/diff-merge-tools.html#start">Part 5 - Tools &amp; Services</a></h4><h6><a  href="../tools-services/diff-merge-tools.html#start">Diff &amp; Merge Tools</a></h6><h6><a  href="../tools-services/code-hosting.html#start">Code Hosting Services</a></h6><h6><a  href="../tools-services/learning-resources.html#start">More Learning Resources</a></h6><h4><a  href="../appendix/best-practices.html#start">Appendix</a></h4><h6><a  href="../appendix/best-practices.html#start">Version Control Best Practices</a></h6><h6><a  href="../appendix/from-subversion-to-git.html#start">Switching from Subversion to Git</a></h6><h6><a  href="../appendix/why-git.html#start">Why Git?</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <strong>Desktop GUI</strong> <span>|</span> <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/rebase">Command Line</a>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>Rebase as an Alternative to Merge</h1>
+<p>While merging is definitely the easiest and most common way to integrate changes, it's not the only one: "Rebase" is an alternative means of integration.</p>
+<div class="box note">
+<h5>Note</h5>
+<p>
+While rebasing definitely has its advantages over an off-the-shelf merge, it's also a matter of taste to a great extent: some teams prefer to use rebase, others prefer merge.
+<br><br>
+As rebasing is quite a bit more complex than merging, my recommendation is that you skip this chapter unless you and your team are absolutely sure you want to use it. Another option is to return to this chapter after you've had some practice with the basic workflow in Git.
+</p>
+</div>
+<h2>Understanding Merge a Little Better</h2>
+<p>Before we can dive into rebase, we'll have to get into a little more detail about merge. When Git performs a merge, it looks for three commits:</p>
+<ul>
+<li>(1) Common ancestor commit<br />
+If you follow the history of two branches in a project, they always have at least one commit in common: at this point in time, both branches had the same content and then evolved differently.</li>
+<li>(2) + (3) Endpoints of each branch<br />
+The goal of an integration is to combine the current states of two branches. Therefore, their respective latest revisions are of special interest.</li>
+</ul>
+<p>Combining these three commits will result in the integration we're aiming for.</p>
+<h2>Fast-Forward or Merge Commit</h2>
+<p>In very simple cases, one of the two branches doesn't have any new commits since the branching happened - its latest commit is still the common ancestor.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/962168121-1570000299/starting-situation-fast-forward.gif" width="690"></figure>
+<p>In this case, performing the integration is dead simple: Git can just add all the commits of the other branch on top of the common ancestor commit. In Git, this simplest form of integration is called a "fast-forward" merge. Both branches then share the exact same history.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/371525700-1570000299/end-situation-fast-forward.gif" width="690"></figure>
+<p>In a lot of cases, however, both branches moved forward individually.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/-626796347-1570000299/starting-situation-merge-commit.gif" width="690"></figure>
+<p>To make an integration, Git will have to create a new commit that contains the differences between them - the merge commit.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/-169912904-1570000299/end-situation-merge-commit.gif" width="690"></figure>
+<h2>Human Commits &amp; Merge Commits</h2>
+<p>Normally, a commit is carefully created by a human being. It's a meaningful unit that wraps only related changes and annotates them with a comment.</p>
+<p>A merge commit is a bit different: instead of being created by a developer, it gets created <em>automatically</em> by Git. And instead of wrapping a set of related changes, its purpose is to connect two branches, just like a knot.  If you want to understand a merge operation later, you need to take a look at the history of <em>both</em> branches and the corresponding commit graph.</p>
+<h2>Integrating with Rebase</h2>
+<p>Some people prefer to go without such automatic merge commits. Instead, they want the project's history to look as if it had evolved in a single, straight line. No indication remains that it had been split into multiple branches at some point.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/-646861069-1570000299/end-situation-rebase.gif" width="690"></figure>
+<p>Let's walk through a rebase operation step by step. The scenario is the same as in the previous examples: we want to integrate the changes from branch-B into branch-A, but now by using rebase.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/439759406-1570000299/starting-situation-rebase.gif" width="690"></figure>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/1332567510-1570000299/01-rebase-button_mac.png" width="566"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/2049483809-1570000299/01-rebase-button_windows.png" width="548"></figure>
+<p>Starting a rebase in Tower is as simple as performing a merge: simply click the "Rebase" button in the toolbar.<br />
+<br /><br /><br /></p>
+<p>First, Git will "undo" all commits on branch-A that happened after the lines began to branch out (after the common ancestor commit). However, of course, it won't discard them: instead you can think of those commits as being "<em>saved away temporarily</em>".</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/-982980492-1570000299/rebase-step-1.gif" width="690"></figure>
+<p>Next, it applies the commits from branch-B that we want to integrate. At this point, both branches look exactly the same.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/-2100784476-1570000299/rebase-step-2.gif" width="690"></figure>
+<p>In the final step, the new commits on branch-A are now reapplied - but on a new position, on top of the integrated commits from branch-B (they are <em>re-based</em>).<br />
+The result looks like development had happened in a straight line. Instead of a merge commit that contains all the combined changes, the original commit structure was preserved.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/rebase/-1079461100-1570000299/rebase-step-3.gif" width="690"></figure>
+<h2>The Pitfalls of Rebase</h2>
+<p>Of course, using rebase isn't just sunshine and roses. You can easily shoot yourself in the foot if you don't mind an important fact: <strong>rebase rewrites history</strong>.</p>
+<p>As you might have noticed in the last diagram above, commit "C3*" has an asterisk symbol added. This is because, although it has the same contents as "C3", it's effectively a different commit. The reason for this is that it now has a new parent commit (C4, which it was rebased onto, compared to C1, when it was originally created).</p>
+<p>A commit has only a handful of important properties like the author, date, changeset - and who its parent commit is. Changing any of this information effectively creates a completely new commit, with a new hash ID.</p>
+<p>Rewriting history in such a way is unproblematic as long as it only affects commits that haven't been published, yet. If instead you're rewriting commits that have already been pushed to a public server, danger is at hand: another developer has probably already based work on the original C3 commit, making it indispensable for other newer commits. Now you introduce the contents of C3 another time (with C3*), and additionally try to remove the original C3 from the timeline with your rebase. This smells like trouble...</p>
+<p>Therefore, you should use rebase only for cleaning up your local work - but never to rebase commits that have already been published.</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="merge-conflicts.html#start">Solving Merge Conflicts</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    <a href="submodules.html#start">Submodules</a>  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/en/desktop-gui/advanced-topics/rebase/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/rebase by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:28 GMT -->
+</html>

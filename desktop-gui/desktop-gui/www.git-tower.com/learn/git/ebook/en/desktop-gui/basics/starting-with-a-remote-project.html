@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/starting-with-a-remote-project by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:02:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Starting with an Existing Project</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="starting-with-a-remote-project.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="Starting with an Existing Project" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="Starting with an Existing Project" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__en__desktop-gui">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, 'Starting with an Existing Project - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, 'Starting with an Existing Project - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, 'Starting with an Existing Project - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">Introduction</a></h4><h4><a class="active" href="what-is-version-control.html#start">Part 1 - The Basics</a></h4><h6><a  href="what-is-version-control.html#start">What is Version Control?</a></h6><h6><a  href="why-use-version-control.html#start">Why Use Version Control?</a></h6><h6><a  href="getting-ready.html#start">Getting Ready</a></h6><h6><a  href="basic-workflow.html#start">The Basic Workflow</a></h6><h6><a  href="starting-with-an-unversioned-project.html#start">Starting with an Unversioned Project</a></h6><h6><a class="active" href="starting-with-a-remote-project.html#start">Starting with an Existing Project</a></h6><h6><a  href="working-on-your-project.html#start">Working on Your Project</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - Branching &amp; Merging</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">Branching can Change Your Life</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">Working with Branches</a></h6><h6><a  href="../branching-merging/stashing.html#start">Saving Changes Temporarily</a></h6><h6><a  href="../branching-merging/checkout.html#start">Checking Out a Local Branch</a></h6><h6><a  href="../branching-merging/merging.html#start">Merging Changes</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">Branching Workflows</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - Sharing Work via Remote Repositories</a></h4><h6><a  href="../remote-repositories/introduction.html#start">Introduction to Remote Repositories</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">Connecting a Remote Repository</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">Inspecting Remote Data</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">Integrating Remote Changes</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">Publishing a Local Branch</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">Deleting Branches</a></h6></div><div class="rightcol"><h4><a  href="../advanced-topics/undoing-things.html#start">Part 4 - Advanced Topics</a></h4><h6><a  href="../advanced-topics/undoing-things.html#start">Undoing Things</a></h6><h6><a  href="../advanced-topics/diffs.html#start">Inspecting Changes with Diffs</a></h6><h6><a  href="../advanced-topics/merge-conflicts.html#start">Dealing with Merge Conflicts</a></h6><h6><a  href="../advanced-topics/rebase.html#start">Rebase as an Alternative to Merge</a></h6><h6><a  href="../advanced-topics/submodules.html#start">Submodules</a></h6><h6><a  href="../advanced-topics/git-flow.html#start">Workflows with git-flow</a></h6><h6><a  href="../advanced-topics/git-lfs.html#start">Handling Large Files with LFS</a></h6><h6><a  href="../advanced-topics/ssh-public-keys.html#start">Authentication with SSH Public Keys</a></h6><h4><a  href="../tools-services/diff-merge-tools.html#start">Part 5 - Tools &amp; Services</a></h4><h6><a  href="../tools-services/diff-merge-tools.html#start">Diff &amp; Merge Tools</a></h6><h6><a  href="../tools-services/code-hosting.html#start">Code Hosting Services</a></h6><h6><a  href="../tools-services/learning-resources.html#start">More Learning Resources</a></h6><h4><a  href="../appendix/best-practices.html#start">Appendix</a></h4><h6><a  href="../appendix/best-practices.html#start">Version Control Best Practices</a></h6><h6><a  href="../appendix/from-subversion-to-git.html#start">Switching from Subversion to Git</a></h6><h6><a  href="../appendix/why-git.html#start">Why Git?</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <strong>Desktop GUI</strong> <span>|</span> <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/basics/starting-with-a-remote-project">Command Line</a>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>Starting with an Existing Project on a Server</h1>
+<p>When you're getting on board of a project that's already running, you'll want to get a copy ("clone" in Git lingo) of the project onto your local machine.</p>
+<p>Today, many teams use a professional service to host their code repositories. If you're using one of the more popular ones (like GitHub, Bitbucket, GitLab, Microsoft Visual Studio, Perforce or Beanstalk) you can connect your service account in Tower to make cloning very easy.</p>
+<h2>Connecting a Hosting Service in Tower</h2>
+<p>Switch to Tower's <strong>Services</strong> view by clicking the little <strong>cloud icon</strong> below the toolbar. There, click the button that corresponds to the hosting service of your choice to start connecting your.</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/starting-with-a-remote-project/1911650177-1570000299/hosting-services_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/starting-with-a-remote-project/96307377-1570000299/hosting-services_windows.png"></figure>
+<p>Authentication options are different for each service provider and depend on your account's settings. The Tower <a href="http://git-tower.com/help/manage-hosting-services/connect-accounts">help documentation</a> contains detailed instructions on this topic.</p>
+<p>Once you've connected your account with Tower, you can clone your repositories with just a single click - without having to enter URLs or authentication credentials anymore.</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/starting-with-a-remote-project/-445656224-1570000299/service-account_mac.png" width="694"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/starting-with-a-remote-project/-1380996199-1570000299/service-account_windows.png"></figure>
+<h2>Cloning from a URL</h2>
+<p>In case the remote repository is <em>not</em> hosted on GitHub, Bitbucket or Beanstalk, you need to clone using the project's remote <strong>URL</strong>. Such a URL can take many forms:</p>
+<pre><code>- ssh://user@server/git-repo.git
+- user@server:git-repo.git
+- http://example.com/git-repo.git
+- https://example.com/git-repo.git
+- git://example.com/git-repo.git</code></pre>
+<p>No matter what format the URL is, you can just pour it into Tower: on the <strong>Repositories</strong> view, click the "Clone" button and paste your URL, along with any authentication credentials you might have received.</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/starting-with-a-remote-project/859212530-1570000299/clone-url_mac.png" width="700"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/starting-with-a-remote-project/-582875531-1570000299/clone-url_windows.png"></figure>
+<div class="box note">
+<h5>Note</h5>
+<p>In case you don't have any remote repository of your own to experiment with, feel free to clone from the following URL:</p>
+<pre><code>https://github.com/gittower/git-crash-course.git</code></pre>
+<p>You won't need any authentication credentials and can simply use the default settings (except maybe for the location you want Git to download it on your computer).<br>I'll use this repository in my examples for the rest of this book.</p>
+</div>
+<p>Git will now download a complete copy of this repository to your local disk - on condition that you're allowed to access this repository.</p>
+<ul>
+<li>For the "http" and "git" protocols, no access rights are necessary.</li>
+<li>For "https" URLs, you might be asked you for a username and a password.</li>
+<li>For "ssh" URLs (either with a leading "ssh://" or, with the shorter form, "user@server..."), you'll have to use "SSH Public Key" authentication. While being very safe, efficient, and widely used, it's also a little bit of work to set up. For detailed information about this topic I recommend taking a look at chapter "<a href="../advanced-topics/ssh-public-keys.html">Authentication with SSH Public Keys</a>" later in this book.</li>
+</ul>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="starting-with-an-unversioned-project.html#start">Creating a Local Repository</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    <a href="working-on-your-project.html#start">Working on Your Project</a>  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/en/desktop-gui/basics/starting-with-a-remote-project/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/starting-with-a-remote-project by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:02:55 GMT -->
+</html>

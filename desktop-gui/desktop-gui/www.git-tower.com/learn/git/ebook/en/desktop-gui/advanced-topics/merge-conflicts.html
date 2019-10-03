@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/merge-conflicts by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dealing with Merge Conflicts</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="merge-conflicts.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="Dealing with Merge Conflicts" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="Dealing with Merge Conflicts" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__en__desktop-gui">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, 'Dealing with Merge Conflicts - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, 'Dealing with Merge Conflicts - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, 'Dealing with Merge Conflicts - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">Introduction</a></h4><h4><a  href="../basics/what-is-version-control.html#start">Part 1 - The Basics</a></h4><h6><a  href="../basics/what-is-version-control.html#start">What is Version Control?</a></h6><h6><a  href="../basics/why-use-version-control.html#start">Why Use Version Control?</a></h6><h6><a  href="../basics/getting-ready.html#start">Getting Ready</a></h6><h6><a  href="../basics/basic-workflow.html#start">The Basic Workflow</a></h6><h6><a  href="../basics/starting-with-an-unversioned-project.html#start">Starting with an Unversioned Project</a></h6><h6><a  href="../basics/starting-with-a-remote-project.html#start">Starting with an Existing Project</a></h6><h6><a  href="../basics/working-on-your-project.html#start">Working on Your Project</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - Branching &amp; Merging</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">Branching can Change Your Life</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">Working with Branches</a></h6><h6><a  href="../branching-merging/stashing.html#start">Saving Changes Temporarily</a></h6><h6><a  href="../branching-merging/checkout.html#start">Checking Out a Local Branch</a></h6><h6><a  href="../branching-merging/merging.html#start">Merging Changes</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">Branching Workflows</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - Sharing Work via Remote Repositories</a></h4><h6><a  href="../remote-repositories/introduction.html#start">Introduction to Remote Repositories</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">Connecting a Remote Repository</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">Inspecting Remote Data</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">Integrating Remote Changes</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">Publishing a Local Branch</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">Deleting Branches</a></h6></div><div class="rightcol"><h4><a class="active" href="undoing-things.html#start">Part 4 - Advanced Topics</a></h4><h6><a  href="undoing-things.html#start">Undoing Things</a></h6><h6><a  href="diffs.html#start">Inspecting Changes with Diffs</a></h6><h6><a class="active" href="merge-conflicts.html#start">Dealing with Merge Conflicts</a></h6><h6><a  href="rebase.html#start">Rebase as an Alternative to Merge</a></h6><h6><a  href="submodules.html#start">Submodules</a></h6><h6><a  href="git-flow.html#start">Workflows with git-flow</a></h6><h6><a  href="git-lfs.html#start">Handling Large Files with LFS</a></h6><h6><a  href="ssh-public-keys.html#start">Authentication with SSH Public Keys</a></h6><h4><a  href="../tools-services/diff-merge-tools.html#start">Part 5 - Tools &amp; Services</a></h4><h6><a  href="../tools-services/diff-merge-tools.html#start">Diff &amp; Merge Tools</a></h6><h6><a  href="../tools-services/code-hosting.html#start">Code Hosting Services</a></h6><h6><a  href="../tools-services/learning-resources.html#start">More Learning Resources</a></h6><h4><a  href="../appendix/best-practices.html#start">Appendix</a></h4><h6><a  href="../appendix/best-practices.html#start">Version Control Best Practices</a></h6><h6><a  href="../appendix/from-subversion-to-git.html#start">Switching from Subversion to Git</a></h6><h6><a  href="../appendix/why-git.html#start">Why Git?</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <strong>Desktop GUI</strong> <span>|</span> <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/merge-conflicts">Command Line</a>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>Dealing with Merge Conflicts</h1>
+<p>For a lot of people, merge conflicts are as scary as accidentally formatting their hard drive. In the course of this chapter, I want to relieve you from this fear.</p>
+<h2>You Cannot Break Things</h2>
+<p>The first thing that you should keep in mind is that you can always undo a merge and go back to the state before the conflict occurred. You're always able to undo and start fresh.</p>
+<p>If you're coming from another version control system like e.g. Subversion you might be traumatized: conflicts in Subversion have the (rightful) reputation of being incredibly complex and nasty. One reason for this is that Git, simply stated, works completely different in this regard than Subversion. As a consequence, Git is able to take care of most things during a merge - leaving you with comparatively simple scenarios to solve.</p>
+<p>Also, a conflict will only ever handicap yourself. It will <em>not</em> bring your complete team to a halt or cripple your central repository. This is because, in Git, conflicts can only occur on a developer's local machine - and not on the server.</p>
+<h2>How a Merge Conflict Occurs</h2>
+<p>In Git, "merging" is the act of integrating another branch into your current working branch. You're taking changes from another context (that's what a branch effectively is: a context) and combine them with your current working files.</p>
+<p>A great thing about having Git as your version control system is that it makes merging extremely easy: in most cases, Git will figure out how to integrate new changes.</p>
+<p>However, there's a handful of situations where you might have to step in and tell Git what to do. Most notably, this is when changing the same file. Even in this case, Git will most likely be able to figure it out on its own. But if two people changed the same lines in that same file, or if one person decided to delete it while the other person decided to modify it, Git simply cannot know what is correct. Git will then mark the file as having a conflict - which you'll have to solve before you can continue your work.</p>
+<h2>How to Solve a Merge Conflict</h2>
+<p>When faced with a merge conflict, the first step is to understand what happened. E.g.: Did one of your colleagues edit the same file on the same lines as you? Did he delete a file that you modified? Did you both add a file with the same name?</p>
+<p>If you have any merge conflicts, Tower will inform you in a very clear way:</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/merge-conflicts/422864150-1570000299/01-conflict-overview_mac.png" width="542"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/merge-conflicts/-814945069-1570000299/01-conflict-overview_windows.png" width="539"></figure>
+<p>In this example, we have three conflicting changes:</p>
+<ul>
+<li><em>about.html</em> was deleted in one version and modified in the other. Which is correct - the modification or the deletion?</li>
+<li><em>box.php</em> was created in both versions, but with different contents. Which version is the correct one?</li>
+<li><em>index.html</em> was modified in both versions in different ways (the "U" icon in the Status column stands for "unmerged"). Which modification is correct?</li>
+</ul>
+<h3 id="chapter_under+the+hood+-+what+a+conflict+looks+like">Under the Hood - What a Conflict Looks Like</h3>
+<p>Before we look at how to solve these conflicts in Tower, we'll risk a look under the hood: we'll look at the contents of the (currently conflicted) <em>faq.html</em> file in an editor:</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/merge-conflicts/-1899216639-1570000299/02-conflict-markers.png" width="690"></figure>
+<p>Git was nice enough to mark the problematic area in the file by enclosing it in "&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" and "&gt;&gt;&gt;&gt;&gt;&gt;&gt; [other/branch/name]". The contents after the first marker originate from our current working branch. A line with "=======" separates the two conflicting changes.</p>
+<p>Our job is now to clean up these lines: when we're done, the file should look exactly as we want it to look. It can be necessary to consult the teammate who wrote the conflicting changes to decide which code is finally correct. Maybe it's yours, maybe it's his - or maybe a mixture between the two.</p>
+<h3 id="chapter_solving+a+conflict+in+tower">Solving a Conflict in Tower</h3>
+<p>Opening the raw file in your editor and cleaning it up there is perfectly valid, but not very comfortable. Tower offers some more elegant ways to solve conflicts.</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/merge-conflicts/1246464094-1570000299/03-tower-conflict_mac.gif"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/merge-conflicts/-922742167-1570000299/03-tower-conflict_windows.gif"></figure>
+<p>Simply select a conflicted item in the list to open Tower's "Conflict Wizard" on the right. Three containers illustrate the case:</p>
+<ul>
+<li>Top left: the version from your current HEAD branch</li>
+<li>Top right: the version from the merged-in branch</li>
+<li>Bottom: the resulting version of the file that you have to compose in the resolution process</li>
+</ul>
+<p>You now have the following options to solve the conflict:</p>
+<ul>
+<li>Determine one of the original versions to be correct. To do so, select <strong>one</strong> of the versions on the top.</li>
+<li>Compose a mixture of both versions as the correct version. To do so, select <strong>both</strong> of the versions on the top.</li>
+</ul>
+<p>After you've made your selection, the bottom container will have adjusted - along with the button below. In case you selected just one of the original versions to be correct, you can simply click the "Resolve Using Their/My Version" button to move on. In case you want to combine both versions, you need to compose this in a "Merge Tool".</p>
+<h3 id="chapter_using+a+merge+tool">Using a Merge Tool</h3>
+<p>Although you could, in theory, edit such a merged version in any text editor, I highly recommend using a dedicated merge tool for this job. See the chapter about <a href="../tools-services/diff-merge-tools.html">Diff &amp; Merge Tools</a> later for recommended tools if you don't have your favorite, yet.</p>
+<p>After configuring your tool in Tower's preferences, it will be opened upon clicking the respective button on the bottom of the Conflict Wizard. For this example, I've used "Kaleidoscope.app" on my Mac:</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/merge-conflicts/-263810921-1570000299/merge-conflict-in-gui.jpg" width="690"></figure>
+<p>The left and right panes stand for the conflicting changes; a far more elegant visualization than "&lt;&lt;&lt;&lt;&lt;&lt;&lt;" and "&gt;&gt;&gt;&gt;&gt;&gt;&gt;". You can now simply toggle which change shall be taken. The middle pane shows the resulting code; in good tools, you can even edit this further.</p>
+<p>Now, after cleaning up the file with the final code, all that's left is to save it. To give Tower a hint that you're done with this file, you should quit the merge tool to continue and return to Tower.</p>
+<h3 id="chapter_conclude+the+resolution+with+a+commit">Conclude the Resolution with a Commit</h3>
+<p>Finally, after solving all conflicted files, a merge conflict situation needs to be concluded by a regular commit.</p>
+<h2>How to Undo a Merge</h2>
+<p>You should always keep in mind that you can return to the state before you started the merge at any time. This should give you the confidence that you can't break anything. In Tower, simply click the "Abort" button on top of the file list in the "Working Copy" view.</p>
+<p>In case you've made a mistake while resolving a conflict and realize this only after completing the merge, you can still easily undo it: just roll back to the commit before the merge happened with the "reset" command and start over again.</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="diffs.html#start">Diffs - Inspecting Changes</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    <a href="rebase.html#start">Rebase</a>  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/en/desktop-gui/advanced-topics/merge-conflicts/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/merge-conflicts by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:23 GMT -->
+</html>

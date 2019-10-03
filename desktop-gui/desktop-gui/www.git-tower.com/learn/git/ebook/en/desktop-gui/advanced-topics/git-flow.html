@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/git-flow by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Workflows with git-flow</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="git-flow.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="Workflows with git-flow" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="Workflows with git-flow" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__en__desktop-gui">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, 'Workflows with git-flow - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, 'Workflows with git-flow - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, 'Workflows with git-flow - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">Introduction</a></h4><h4><a  href="../basics/what-is-version-control.html#start">Part 1 - The Basics</a></h4><h6><a  href="../basics/what-is-version-control.html#start">What is Version Control?</a></h6><h6><a  href="../basics/why-use-version-control.html#start">Why Use Version Control?</a></h6><h6><a  href="../basics/getting-ready.html#start">Getting Ready</a></h6><h6><a  href="../basics/basic-workflow.html#start">The Basic Workflow</a></h6><h6><a  href="../basics/starting-with-an-unversioned-project.html#start">Starting with an Unversioned Project</a></h6><h6><a  href="../basics/starting-with-a-remote-project.html#start">Starting with an Existing Project</a></h6><h6><a  href="../basics/working-on-your-project.html#start">Working on Your Project</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - Branching &amp; Merging</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">Branching can Change Your Life</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">Working with Branches</a></h6><h6><a  href="../branching-merging/stashing.html#start">Saving Changes Temporarily</a></h6><h6><a  href="../branching-merging/checkout.html#start">Checking Out a Local Branch</a></h6><h6><a  href="../branching-merging/merging.html#start">Merging Changes</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">Branching Workflows</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - Sharing Work via Remote Repositories</a></h4><h6><a  href="../remote-repositories/introduction.html#start">Introduction to Remote Repositories</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">Connecting a Remote Repository</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">Inspecting Remote Data</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">Integrating Remote Changes</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">Publishing a Local Branch</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">Deleting Branches</a></h6></div><div class="rightcol"><h4><a class="active" href="undoing-things.html#start">Part 4 - Advanced Topics</a></h4><h6><a  href="undoing-things.html#start">Undoing Things</a></h6><h6><a  href="diffs.html#start">Inspecting Changes with Diffs</a></h6><h6><a  href="merge-conflicts.html#start">Dealing with Merge Conflicts</a></h6><h6><a  href="rebase.html#start">Rebase as an Alternative to Merge</a></h6><h6><a  href="submodules.html#start">Submodules</a></h6><h6><a class="active" href="git-flow.html#start">Workflows with git-flow</a></h6><h6><a  href="git-lfs.html#start">Handling Large Files with LFS</a></h6><h6><a  href="ssh-public-keys.html#start">Authentication with SSH Public Keys</a></h6><h4><a  href="../tools-services/diff-merge-tools.html#start">Part 5 - Tools &amp; Services</a></h4><h6><a  href="../tools-services/diff-merge-tools.html#start">Diff &amp; Merge Tools</a></h6><h6><a  href="../tools-services/code-hosting.html#start">Code Hosting Services</a></h6><h6><a  href="../tools-services/learning-resources.html#start">More Learning Resources</a></h6><h4><a  href="../appendix/best-practices.html#start">Appendix</a></h4><h6><a  href="../appendix/best-practices.html#start">Version Control Best Practices</a></h6><h6><a  href="../appendix/from-subversion-to-git.html#start">Switching from Subversion to Git</a></h6><h6><a  href="../appendix/why-git.html#start">Why Git?</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <strong>Desktop GUI</strong> <span>|</span> <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/git-flow">Command Line</a>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>Workflows with git-flow</h1>
+<p>When using version control in a team, it's crucial to agree on a workflow. Git in particular allows to do lots of things in lots of ways. However, if you don't use a common workflow in your team, confusion is inevitable.</p>
+<p>In principle, you're free to define your workflow of choice just as you want it - or you simply adopt an <em>existing</em> one.</p>
+<p>In this chapter, we'll look at a workflow that has become quite popular in recent years: "git-flow".</p>
+<h2>What is git-flow?</h2>
+<p>git-flow provides you with a handful of extra commands. Each of these commands performs multiple tasks automatically and in a predefined order. And voila - there we have our workflows!</p>
+<p>git-flow is by no means a replacement for Git. It's just a set of scripts that combine standard Git commands in a clever way.</p>
+<p>Strictly speaking, you wouldn't even have to use the scripts to use git-flow(-like) workflows: you could easily learn which workflow involves which individual tasks - and simply perform these Git commands (with the right parameters and in the right order) on your own. The git-flow scripts, however, save you from having to memorize all of this.</p>
+<h2>Installing git-flow</h2>
+<p>A couple of different forks of git-flow have emerged in recent years. In this chapter, we're using one of the most popular ones: the <a href="https://github.com/petervanderdoes/gitflow/" rel="noopener noreferrer" target="_blank">AVH Edition</a>.</p>
+<p>Using Tower, you don't have to install anything as the app already includes the git-flow scripts.</p>
+<h2>Setting Up git-flow in a Project</h2>
+<p>When you "switch on" git-flow in a project, Git still works the same way in this repository. It is totally up to you to use special git-flow commands and normal Git commands in this repository side by side. Put another way, git-flow doesn't <em>alter</em> your repository in any dramatic way.</p>
+<p>That being said, however, git-flow indeed expects some conventions. Let's initialize it in a new project and we'll instantly see.</p>
+<p>In Tower, either activate the "Git Flow" tab in the "Settings" area - or simply click the "Git-Flow" button in the toolbar.</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-1300763632-1570000299/03-enable-git-flow_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-1632373338-1570000299/03-enable-git-flow_windows.png" width="724"></figure>
+<p>You can then enable git-flow and will see the following configuration dialog:</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-1453607650-1570000299/04-configure-git-flow_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-1370147352-1570000299/04-configure-git-flow_windows.png" width="690"></figure>
+<p>Although you can enter any names you like, I strongly suggest you stick with the default naming scheme - unless you have a very good reason to stray off the defaults.</p>
+<h2>Branching Model</h2>
+<p>The git-flow model expects two main branches in a repository:</p>
+<ul>
+<li><strong>master</strong> always and exclusively contains production code. You don't work directly on the master branch but instead in designated, separate feature branches (which we'll talk about in a minute). Not committing directly to the <em>master</em> branch is a common hygiene rule in many workflows.</li>
+<li><strong>develop</strong> is the basis for any new development efforts you make: when you start a new feature branch it will be based on <em>develop</em>. Additionally, this branch also aggregates any finished features, waiting to be integrated and deployed via <em>master</em>.</li>
+</ul>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/1637630691-1570000299/01-master-develop.png"></figure>
+<p>These two branches are so-called <a href="../branching-merging/branching-workflows/index.html" rel="noopener noreferrer" target="_blank">long-running</a> branches: they remain in your project during its whole lifetime. Other branches, e.g. for features or releases, only exist temporarily: they are created on demand and are deleted after they've fulfilled their purpose.</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/2144379591-1570000299/02-features-hotfix.png"></figure>
+<p>Let's start exploring all of this in some real-world use cases.</p>
+<h2>Feature Development</h2>
+<p>Working on a feature is by far the most common task for any developer. That's why git-flow offers a couple of workflows around feature development that help do this in an organized way.</p>
+<h3 id="chapter_starting+a+new+feature">Starting a New Feature</h3>
+<p>Let's start working on a new "rss-feed" feature. Click the "Git-Flow" button in Tower's toolbar and select "Start Feature".</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-98689413-1570000299/05-start-feature_mac.gif"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-1411411014-1570000299/05-start-feature_windows.gif"></figure>
+<p>git-flow now created a new branch called "feature/rss-feed" (the "feature/" prefix was one of the configurable options on setup). As you already know, using separate branches for your feature development is one of the most important ground rules in version control.<br />
+git-flow also directly checks out the new branch so you can jump right into work.</p>
+<h3 id="chapter_finishing+a+feature">Finishing a Feature</h3>
+<p>After some time of hard work and a number of clever commits, our feature is finally done. Right-click the feature branch in Tower's sidebar and select "Git-Flow Finish Feature 'rss-feed'".</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-616639285-1570000299/06-finish-feature_mac.png" width="403"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/1347113638-1570000299/06-finish-feature_windows.png" width="418"></figure>
+<p>Most importantly, the "feature finish" command integrates our work back into the main "develop" branch. There, it waits...</p>
+<ol>
+<li>...to be thouroughly tested in the broader "develop" context.</li>
+<li>...to be released at a later time with all the other features that accumulate in the "develop" branch.</li>
+</ol>
+<p>git-flow also cleans up after us: it deletes the (now obsolete) feature branch and checks out the "develop" branch.</p>
+<h2>Managing Releases</h2>
+<p>Release management is another important topic that version control deals with. Let's look at how to create and publish releases with git-flow.</p>
+<h3 id="chapter_creating+a+new+release">Creating a New Release</h3>
+<p>Do you feel that your current code on the "develop" branch is ripe for a new release? This should mean that it (a) contains all the new features and fixes and (b) has been thoroughly tested. If both (a) and (b) are true, you're ready to start a new release.</p>
+<p>To do so, click the "Git-Flow" button in the toolbar and select "Start Release".</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-641386112-1570000299/07-start-release_mac.png" width="593"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/git-flow/-1541236941-1570000299/07-start-release_windows.png" width="617"></figure>
+<p>Note that release branches are named using version numbers. In addition to being an obvious choice, this naming scheme has a nice side-effect: git-flow can automatically <em>tag</em> the release commit appropriately when we later finish the release.</p>
+<p>With a new release branch in place, popular last preparations include bumping the version number (if your type of project keeps note of the version number somewhere in a file) and making any last-minute adaptions.</p>
+<h3 id="chapter_finishing+the+release">Finishing the Release</h3>
+<p>It's time to hit the danger button and finish our release: again, right-click the release branch in Tower's sidebar and choose "Git-Flow Finish Release".</p>
+<p>This triggers a couple of actions:</p>
+<ol>
+<li>First, git-flow pulls from the remote repository to make sure you are up-to-date.</li>
+<li>Then, the release content is merged back into both "master" and "develop" (so that not only the production code is up-to-date, but also new feature branches will be based off the latest code).</li>
+<li>To easily identify and reference it later, the release commit is tagged with the release's name ("1.1.5" in our case).</li>
+<li>To clean up, the release branch is deleted and we're back on "develop".</li>
+</ol>
+<p>From Git's point of view, the release is now finished. Depending on your setup, committing on "master" might have already triggered your deployment process - or you now manually do anything necessary to get your software product into the hands of your users.</p>
+<h2>Hotfixes</h2>
+<p>As thoroughly tested as your releases might be: all too often, just a couple of hours or days later, a little bug might nonetheless show its antennas. For cases like these, git-flow offers the special "hotfix" workflow (since neither a "feature" branch nor a "release" branch would be appropriate).</p>
+<h3 id="chapter_creating+hotfixes">Creating Hotfixes</h3>
+<p>As before, the "Git-Flow" button in the toolbar is our starting point: choose "Start Hotfix" from the menu and, for our example, name the hotfix "missing-link".</p>
+<p>This creates a new branch named "hotfix/missing-link". Since we need to fix production code, the hotfix branch is based off of "master". This is also the most obvious distinction from release branches, which are based off of the "develop" branch. Because you wouldn't want to base a production hotfix on your (still unstable) develop code...</p>
+<p>Just like with a release, however, we bump up our project's version number and - of course - fix that bug!</p>
+<h3 id="chapter_finishing+hotfixes">Finishing Hotfixes</h3>
+<p>With our solution committed to the hotfix branch, it's time to wrap up: simply right-click the hotfix branch in Tower's sidebar and choose "Git Flow Finish Hotfix".</p>
+<p>The procedure in the background is very similar to finishing a release:</p>
+<ul>
+<li>The changes are merged both into "master" as well as into "develop" (to make sure the bug doesn't slip into the next release, again).</li>
+<li>The hotfix is tagged for easy reference.</li>
+<li>The branch is deleted and "develop" is checked out again.</li>
+</ul>
+<p>As with a release, now's the time to build / deploy your product (in case this hasn't already been triggered automatically).</p>
+<h2>Workflows: A Recap</h2>
+<p>Let me finish this chapter by stressing an important point once more: git-flow doesn't add any functionality on top of Git. It's <em>simply</em> a set of scripts that bundle Git commands into workflows.<br />
+However, agreeing on a fixed process makes collaborating in a team much easier: everybody, from the "Git pro" to the "version control newbie", knows how certain tasks ought to be done.</p>
+<p>Keep in mind, though, that you don't <em>have</em> to use git-flow to achieve this: often, after some time and experience, teams notice that they don't need git-flow anymore. Once the basic parts and goals of a workflow are understood, you're free to define your own.</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="submodules.html#start">Submodules</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    <a href="git-lfs.html#start">Handling Large Files with LFS</a>  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/en/desktop-gui/advanced-topics/git-flow/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/git-flow by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:41 GMT -->
+</html>

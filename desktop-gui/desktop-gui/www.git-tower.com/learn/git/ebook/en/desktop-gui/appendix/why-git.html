@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/appendix/why-git by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Why Git?</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="why-git.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="Why Git?" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="Why Git?" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__en__desktop-gui">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, 'Why Git? - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, 'Why Git? - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, 'Why Git? - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">Introduction</a></h4><h4><a  href="../basics/what-is-version-control.html#start">Part 1 - The Basics</a></h4><h6><a  href="../basics/what-is-version-control.html#start">What is Version Control?</a></h6><h6><a  href="../basics/why-use-version-control.html#start">Why Use Version Control?</a></h6><h6><a  href="../basics/getting-ready.html#start">Getting Ready</a></h6><h6><a  href="../basics/basic-workflow.html#start">The Basic Workflow</a></h6><h6><a  href="../basics/starting-with-an-unversioned-project.html#start">Starting with an Unversioned Project</a></h6><h6><a  href="../basics/starting-with-a-remote-project.html#start">Starting with an Existing Project</a></h6><h6><a  href="../basics/working-on-your-project.html#start">Working on Your Project</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - Branching &amp; Merging</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">Branching can Change Your Life</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">Working with Branches</a></h6><h6><a  href="../branching-merging/stashing.html#start">Saving Changes Temporarily</a></h6><h6><a  href="../branching-merging/checkout.html#start">Checking Out a Local Branch</a></h6><h6><a  href="../branching-merging/merging.html#start">Merging Changes</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">Branching Workflows</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - Sharing Work via Remote Repositories</a></h4><h6><a  href="../remote-repositories/introduction.html#start">Introduction to Remote Repositories</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">Connecting a Remote Repository</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">Inspecting Remote Data</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">Integrating Remote Changes</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">Publishing a Local Branch</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">Deleting Branches</a></h6></div><div class="rightcol"><h4><a  href="../advanced-topics/undoing-things.html#start">Part 4 - Advanced Topics</a></h4><h6><a  href="../advanced-topics/undoing-things.html#start">Undoing Things</a></h6><h6><a  href="../advanced-topics/diffs.html#start">Inspecting Changes with Diffs</a></h6><h6><a  href="../advanced-topics/merge-conflicts.html#start">Dealing with Merge Conflicts</a></h6><h6><a  href="../advanced-topics/rebase.html#start">Rebase as an Alternative to Merge</a></h6><h6><a  href="../advanced-topics/submodules.html#start">Submodules</a></h6><h6><a  href="../advanced-topics/git-flow.html#start">Workflows with git-flow</a></h6><h6><a  href="../advanced-topics/git-lfs.html#start">Handling Large Files with LFS</a></h6><h6><a  href="../advanced-topics/ssh-public-keys.html#start">Authentication with SSH Public Keys</a></h6><h4><a  href="../tools-services/diff-merge-tools.html#start">Part 5 - Tools &amp; Services</a></h4><h6><a  href="../tools-services/diff-merge-tools.html#start">Diff &amp; Merge Tools</a></h6><h6><a  href="../tools-services/code-hosting.html#start">Code Hosting Services</a></h6><h6><a  href="../tools-services/learning-resources.html#start">More Learning Resources</a></h6><h4><a class="active" href="best-practices.html#start">Appendix</a></h4><h6><a  href="best-practices.html#start">Version Control Best Practices</a></h6><h6><a  href="from-subversion-to-git.html#start">Switching from Subversion to Git</a></h6><h6><a class="active" href="why-git.html#start">Why Git?</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <strong>Desktop GUI</strong> <span>|</span> <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/why-git">Command Line</a>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>Why Git?</h1>
+<p>Although there are dozens of version control systems on the market, some of the world's most renowned projects (like the Linux Kernel, Ruby on Rails, or jQuery) are using Git as their VCS of choice. Here are some of the reasons why.</p>
+<h2>Save Time</h2>
+<p>Git is lightning fast. And although we're talking about only a few seconds per command, it quickly adds up in your work day. Use your time for something more useful than waiting for your version control system to get back to you.</p>
+<h2>Work Offline</h2>
+<p>What if you want to work while you're on the move? With a centralized VCS like Subversion or CVS, you're stranded if you're not connected to the central repository. With Git, almost everything is possible simply on your local machine: make a commit, browse your project's complete history, merge or create branches... Git let's you decide where and when you want to work.</p>
+<h2>Undo Mistakes</h2>
+<p>People make mistakes. A good thing about Git is that there's a little "undo" command for almost every situation. Correct your last commit because you forgot to include that small change. Revert a whole commit because that feature isn't necessary, anymore. And when the going gets tough you can even restore disappeared commits with the Reflog - because, behind the scenes, Git rarely really deletes something. This is peace of mind.</p>
+<h2>Don't Worry</h2>
+<p>Git gives you the confidence that you can't screw things up - and this is a great feeling. In Git, every clone of a project that one of your teammates might have on his local computer is a fully usable backup. Additionally, almost every action in Git only adds data (deleting is very rare). That means that losing data or breaking a repository beyond repair is really hard to do.</p>
+<h2>Make Useful Commits</h2>
+<p>A commit is only really useful if it just contains related changes. Imagine having a commit that contains something from feature A, a little bit of feature B, and bugfix C. This is hard to understand for your teammates and can't be rolled back easily if some of the code is causing problems. Git helps you create granular commits with its unique "staging area" concept: you can determine exactly which changes shall be included in your next commits, even down to single lines. This is where version control starts to be useful.</p>
+<h2>Work in Your Own Way</h2>
+<p>When working with Git you can use your very own workflow. One that feels good for you. You don’t have to be a code acrobat to qualify for using Git. Of course, you can connect with multiple remote repositories, rebase instead of merge, and work with submodules when you need it. But you can just as easily work with one central remote repository like in Subversion. All the other advantages remain – regardless of your workflow.</p>
+<h2>Don’t Mix Things Up</h2>
+<p>Separation of concerns is paramount to keeping track of things. While you’re working on feature A, nothing (and no-one) else should be affected by your unfinished code. What if it turns out the feature isn’t necessary anymore? Or if, after 10 commits, you notice that you took a completely wrong approach? Branching is the answer for these problems. And while other version control systems also know branches, Git is the first one to make it work as it should: fast &amp; easy.</p>
+<h2>Go With the Flow</h2>
+<p>Only dead fish swim with the stream. And sometimes, clever developers do, too. Git is used by more and more well-known companies and Open Source projects: Ruby On Rails, jQuery, Perl, Debian, the Linux Kernel and many more. A large community often is an advantage by itself because an ecosystem evolves around the system. Lots of tutorials, tools, and services make Git even more attractive.</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="from-subversion-to-git.html#start">Git for Subversion Users</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    &nbsp;&nbsp  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/en/desktop-gui/appendix/why-git/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/appendix/why-git by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:49 GMT -->
+</html>

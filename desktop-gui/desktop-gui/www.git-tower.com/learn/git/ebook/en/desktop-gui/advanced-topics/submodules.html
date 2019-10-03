@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/submodules by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Submodules</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="submodules.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="Submodules" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="Submodules" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__en__desktop-gui">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, 'Submodules - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, 'Submodules - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, 'Submodules - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">Introduction</a></h4><h4><a  href="../basics/what-is-version-control.html#start">Part 1 - The Basics</a></h4><h6><a  href="../basics/what-is-version-control.html#start">What is Version Control?</a></h6><h6><a  href="../basics/why-use-version-control.html#start">Why Use Version Control?</a></h6><h6><a  href="../basics/getting-ready.html#start">Getting Ready</a></h6><h6><a  href="../basics/basic-workflow.html#start">The Basic Workflow</a></h6><h6><a  href="../basics/starting-with-an-unversioned-project.html#start">Starting with an Unversioned Project</a></h6><h6><a  href="../basics/starting-with-a-remote-project.html#start">Starting with an Existing Project</a></h6><h6><a  href="../basics/working-on-your-project.html#start">Working on Your Project</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - Branching &amp; Merging</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">Branching can Change Your Life</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">Working with Branches</a></h6><h6><a  href="../branching-merging/stashing.html#start">Saving Changes Temporarily</a></h6><h6><a  href="../branching-merging/checkout.html#start">Checking Out a Local Branch</a></h6><h6><a  href="../branching-merging/merging.html#start">Merging Changes</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">Branching Workflows</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - Sharing Work via Remote Repositories</a></h4><h6><a  href="../remote-repositories/introduction.html#start">Introduction to Remote Repositories</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">Connecting a Remote Repository</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">Inspecting Remote Data</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">Integrating Remote Changes</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">Publishing a Local Branch</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">Deleting Branches</a></h6></div><div class="rightcol"><h4><a class="active" href="undoing-things.html#start">Part 4 - Advanced Topics</a></h4><h6><a  href="undoing-things.html#start">Undoing Things</a></h6><h6><a  href="diffs.html#start">Inspecting Changes with Diffs</a></h6><h6><a  href="merge-conflicts.html#start">Dealing with Merge Conflicts</a></h6><h6><a  href="rebase.html#start">Rebase as an Alternative to Merge</a></h6><h6><a class="active" href="submodules.html#start">Submodules</a></h6><h6><a  href="git-flow.html#start">Workflows with git-flow</a></h6><h6><a  href="git-lfs.html#start">Handling Large Files with LFS</a></h6><h6><a  href="ssh-public-keys.html#start">Authentication with SSH Public Keys</a></h6><h4><a  href="../tools-services/diff-merge-tools.html#start">Part 5 - Tools &amp; Services</a></h4><h6><a  href="../tools-services/diff-merge-tools.html#start">Diff &amp; Merge Tools</a></h6><h6><a  href="../tools-services/code-hosting.html#start">Code Hosting Services</a></h6><h6><a  href="../tools-services/learning-resources.html#start">More Learning Resources</a></h6><h4><a  href="../appendix/best-practices.html#start">Appendix</a></h4><h6><a  href="../appendix/best-practices.html#start">Version Control Best Practices</a></h6><h6><a  href="../appendix/from-subversion-to-git.html#start">Switching from Subversion to Git</a></h6><h6><a  href="../appendix/why-git.html#start">Why Git?</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <strong>Desktop GUI</strong> <span>|</span> <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/submodules">Command Line</a>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>Submodules</h1>
+<p>Often in a project, you want to include libraries and other resources. The manual way is to simply download the necessary code files, copy them to your project, and commit the new files into your Git repository.</p>
+<p>While this is a valid approach, it's not the cleanest one. By casually throwing those library files into your project, we're inviting a couple of problems:</p>
+<ul>
+<li>This mixes external code with our own, unique project files. The library, actually, is a project of itself and should be kept separate from our work. There's no need to keep these files in the same version control context as our project.</li>
+<li>Should the library change (because bugs were fixed or new features added), we'll have a hard time updating the library code. Again, we need to download the raw files and replace the original items.</li>
+</ul>
+<p>Since these are quite common problems in everyday projects, Git of course offers a solution: Submodules.</p>
+<h2>Repositories Inside Repositories</h2>
+<p>A "Submodule" is just a standard Git repository. The only specialty is that it is <em>nested</em> inside a parent repository. In the common case of including a code library, you can simply add the library as a Submodule in your main project.</p>
+<p>A Submodule remains a fully functional Git repository: you can modify files, commit, pull, push, etc. from inside it like with any other repository.</p>
+<p>Let's see how to work with Submodules in practice.</p>
+<h2>Adding a Submodule</h2>
+<p>In our sample project, we want to add a little Javascript library called "ToProgress". We create a new "lib" folder to host this (and future) library code; and a new "ToProgress" folder inside.</p>
+<p>Clicking the little "+" button on the bottom left of the Tower window, we choose "Add Submodule...". In the dialog, we paste the remote URL of the library and choose our new and empty destination folder:</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-1517142850-1570000299/01-add-submodule-dialog_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/508832974-1570000299/01-add-submodule-dialog_windows.png"></figure>
+<p>Let's see what happened after confirming this dialog:</p>
+<ul>
+<li>
+<p>(1) The command started a simple cloning process of the specified Git repository.</p>
+</li>
+<li>
+<p>(2) Of course, this is reflected in our file structure: our project now contains the library code in our "lib/ToProgress" directory. As you can see from the ".git" subfolder contained herein, this is a fully-featured Git repository.</p>
+</li>
+</ul>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-403143735-1570000299/02-library-files-after-adding-submodule_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/561950295-1570000299/02-library-files-after-adding-submodule_windows.png"></figure>
+<div class="box concept">
+<h5>Concept</h5>
+<p>It's important to understand that the actual <em>contents</em> of a Submodule are NOT stored in its parent repository. Only its remote URL, the local path inside the main project and the checked out revision are stored by the main repository.</p>
+<p>Of course, the Submodule's working files <strong>are</strong> placed inside the specified directory in your project - in the end, you want to use the library's files! But they are not part of the parent project's version control contents.</p>
+</div>
+<ul>
+<li>
+<p>(3) A new ".gitmodules" file was created. This is where Git keeps track of our Submodules and their configuration:</p>
+<pre><code>  [submodule "lib/ToProgress"]
+      path = lib/ToProgress
+      url = https://github.com/djyde/ToProgress</code></pre>
+</li>
+</ul>
+<ol start="4">
+<li>In case you're interested in the inner workings of Git: besides the ".gitmodules" configuration file, Git also keeps record of the Submodule in your local ".git/config" file. Finally, it also keeps a copy of each Submodule's .git repository in its internal ".git/modules" folder.</li>
+</ol>
+<div class="box concept">
+<h5>Concept</h5>
+<p>Git's internal management of Submodules are quite complex (as you can already guess from all the .gitmodules, .git/config, and .git/modules entries...). Therefore, it's highly recommended <strong>not</strong> to mess with configuration files and values manually. Please do yourself a favor and always use manage Submodules through Tower.</p>
+</div>
+<p><br /><br />
+Let's have a look at our project's status:</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-889276409-1570000299/03-status-after-adding_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-1940404512-1570000299/03-status-after-adding_windows.png"></figure>
+<p>Git regards adding a Submodule as a modification like any other - and requests you to commit it to the repository. After that, we have successfully added a Submodule to our main project! Before we look at a couple of use cases, let's see how you can <em>clone</em> a project that already <em>has</em> Submodules added.</p>
+<h2>Cloning a Project with Submodules</h2>
+<p>You already know that a project repository does <em>not</em> contain its Submodules' files; the parent repository only saves the Submodules' <em>configurations</em> as part of version control.<br />
+This shows when you clone a project that contains Submodules: by default, Git only downloads the project itself. Our "lib" folder, however, would stay empty.</p>
+<p>You have two options to end up with a populated "lib" folder (or wherever else you choose to save your Submodules; "lib" is just an example):</p>
+<ul>
+<li>
+<p>(a) You can check the "Initialize Submodules" option in the "Clone Remote Repository" dialog in Tower; this tells Tower to also initialize all Submodules when the cloning is finished.</p>
+</li>
+<li>
+<p>(b) If you haven't used this option, you need to initialize the Submodules afterwards: in Tower's sidebar, right-click the Submodule items and choose the "Initialize" option.</p>
+</li>
+</ul>
+<h2>Checking Out a Revision</h2>
+<p>A Git repository can have countless committed versions, but only one version's files can be in your working directory. Therefore, like with any Git repository, you have to decide which revision of your Submodule shall be <em>checked out</em>.</p>
+<div class="box concept">
+<h5>Concept</h5>
+<p>Unlike normal Git repositories, Submodules always point to a specific commit - not a branch. This is because the contents of a branch can change over time, as new commits arrive. Pointing at a specific revision, on the other hand, guarantees that the correct code is always present.</p>
+</div>
+<p>Let's say we want to have an older version of our "ToProgress" library in our project. First, we'll have a look at the library's commit history. Simply double-click the Submodule item in Tower's sidebar. This opens it for working in Tower; any actions you perform now will happen in the context of the Submodule, not its parent repository.</p>
+<p>Now, in the log output, we spot a commit that is tagged "0.1.1":</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/1383036338-1570000299/04-commit-history_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-1459430026-1570000299/04-commit-history_windows.png"></figure>
+<p>This is the version we want to have in our project. To start with, we can simply check out this commit. Right-click it in the list and select "Check Out 3557a0e0".</p>
+<p>Let's see what our parent repository thinks about all this. Simply select it in the navigation bar below the button toolbar to return to the main project.</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-724536927-1570000299/05-moved-pointer_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-1960764999-1570000299/05-moved-pointer_windows.png"></figure>
+<p>On the right, we see that the Subproject is now checked out at the commit we've just chosen. This makes sense - since we just changed the checked out revision to the commit tagged "0.1.1".</p>
+<p>In the "Status" list in the middle column, we see that Git regards moving the Submodule's pointer as a change like any other. We need to commit this to the repository in order to make it official.</p>
+<h2>Updating a Submodule with a Moved Pointer</h2>
+<p>We just saw how to check out a Submodule at a specific revision. But what if one of our teammates does this in our project? Let's say we integrate his changes (through pull, merge, or rebase for example) after he has moved the Submodule pointer to a different revision.</p>
+<p>Now, after completing the "pull" operation, Tower detects that the Submodule pointer was moved - the version we currently have checked out in our project is <em>not</em> the one that is "officially" committed.</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-1046604809-1570000299/06-auto-update-submodule_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/758370537-1570000299/06-auto-update-submodule_windows.png"></figure>
+<p>If you choose to let Tower automatically update, it does the heavy lifting for you in the background. "Update", when referring to Submodules, means that Git checks out the Submodule revision that is currently <strong>committed</strong> in the parent repository.</p>
+<p>We now have the same version of the Submodule checked out that our teammate had committed to the repository.</p>
+<h2>Checking for New Changes in the Submodule</h2>
+<p>Normally, you don't want library code to change very often: you'll want to use a version of the Submodule that you've tested and which you know works flawlessly with your own code.<br />
+However, one of the best things about Submodules is that you can easily keep up with new releases (or minor new improvements).</p>
+<p>Let's see if there's new code available in the Submodule: simply double-click the Submodule item in the sidebar to open it in Tower and perform a "Fetch".</p>
+<p>It seems we're lucky because the Fetch reveals a new commit on "origin/master":</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/1791752145-1570000299/07-new-remote-commit_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-2142663930-1570000299/07-new-remote-commit_windows.png"></figure>
+<div class="box concept">
+<h5>Concept</h5>
+<p>Before we go ahead and integrate these changes, I'd like to stress an important point once more. When looking at the BRANCHES section in Tower's sidebar, you see that the Submodule repository is currently checked out a specific commit - not a branch! This is what's called a <strong>detached HEAD</strong> in Git.</p>
+<p>Normally, in Git, you always have a certain branch checked out. However, you <em>can</em> also choose to check out a specific <strong>commit</strong> (one that is <strong>not</strong> the tip of a branch). This is a rather rare case in Git and should normally be avoided.</p>
+<p>However, when working with Submodules, it is the normal state to have a certain commit (and not a branch) checked out. You want to make sure you have an exact, static commit checked out in your project - not a branch which, by its nature, moves on with newer commits.</p>
+</div>
+<p>Now, let's check out our Submodule at this new commit. In this case, you can simply perform a "pull" from "origin/master" to make this commit your new HEAD.</p>
+<p>We're done working in our Submodule; let's move back into our main project by selecting it in the navigation bar breadcrumb. Since we've just moved the Submodule pointer to a different revision, we need to commit this change to the main repository to make it official.</p>
+<h2>Working in a Submodule</h2>
+<p>In some cases, you might want to make some custom changes to a Submodule. You've already seen that working in a Submodule is like working in any other Git repository: any Git commands that you perform inside a Submodule are executed in the context of that sub-repository.</p>
+<p>Let's say you want to change a tiny bit in a Submodule; you make your changes in the corresponding files, add them to the staging area and commit them.</p>
+<p>This <em>might</em> already be the first banana skin: you should make sure you currently have a <em>branch</em> checked out in the Submodule before you commit. That's because if you're in a detached HEAD situation, your commit will easily get lost: it's not attached to any branch and will be gone as soon as you check out anything else.</p>
+<p>Apart from that, everything else you've already learned still applies: in the main project, Tower will tell you that the Submodule pointer was moved and that you'll have to commit the move.</p>
+<p>By the way: in case you have <em>uncommitted</em> local changes inside a Submodule, Tower will also tell you in the main project. A badge next to the Submodule in the sidebar and a description text in its detail view help you stay on top of things:</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/-1054800720-1570000299/09-local-changes_mac.png"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/advanced-topics/submodules/1371846639-1570000299/09-local-changes_windows.png"></figure>
+<p>Make sure to always keep a clean state in your Submodules.</p>
+<h2>Deleting a Submodule</h2>
+<p>Rather seldomly will you want to remove a Submodule from your project. But if you really want to do this, please don't do this manually: trying to mess with all the configuration files in a correct way will almost inevitably cause problems.</p>
+<p>Simply right-click the Submodule in the sidedbar and choose "Delete". This will allow you to have both the configuration and the actual Submodule files removed.<br />
+As with any change you'll have to commit the removal to record it in the repository.</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="rebase.html#start">Rebase</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    <a href="git-flow.html#start">Workflows with git-flow</a>  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/en/desktop-gui/advanced-topics/submodules/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/submodules by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:03:35 GMT -->
+</html>

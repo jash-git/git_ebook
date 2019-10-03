@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/cn/command-line/appendix/why-git by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:00:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>为什么选择 Git？</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="why-git.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="为什么选择 Git？" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="为什么选择 Git？" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__cn__command-line">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, '为什么选择 Git？ - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, '为什么选择 Git？ - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, '为什么选择 Git？ - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">前言</a></h4><h4><a  href="../basics/what-is-version-control.html#start">Part 1 - 基础知识</a></h4><h6><a  href="../basics/what-is-version-control.html#start">什么是版本控制？</a></h6><h6><a  href="../basics/why-use-version-control.html#start">为什么要使用版本控制系统？</a></h6><h6><a  href="../basics/getting-ready.html#start">准备工作</a></h6><h6><a  href="../basics/basic-workflow.html#start">基本工作流程</a></h6><h6><a  href="../basics/starting-with-an-unversioned-project.html#start">从一个未被纳入版本控制的项目开始</a></h6><h6><a  href="../basics/starting-with-a-remote-project.html#start">从一个已被纳入版本控制的项目开始</a></h6><h6><a  href="../basics/working-on-your-project.html#start">工作在你的项目上</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - 分支与合并</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">分支可以改变你的生命</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">在分支上工作</a></h6><h6><a  href="../branching-merging/stashing.html#start">暂时保存更改</a></h6><h6><a  href="../branching-merging/checkout.html#start">签出一个本地分支</a></h6><h6><a  href="../branching-merging/merging.html#start">合并改动</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">分支的工作流程</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - 远程仓库</a></h4><h6><a  href="../remote-repositories/introduction.html#start">远程仓库</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">连接一个远程仓库</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">查看远程数据</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">整合远程的改动</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">发布一个本地分支</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">删除分支</a></h6></div><div class="rightcol"><h4><a  href="../advanced-topics/undoing-things.html#start">Part 4 - 高级应用</a></h4><h6><a  href="../advanced-topics/undoing-things.html#start">撤销操作</a></h6><h6><a  href="../advanced-topics/diffs.html#start">用 diff 检查改动</a></h6><h6><a  href="../advanced-topics/merge-conflicts.html#start">处理合并冲突</a></h6><h6><a  href="../advanced-topics/rebase.html#start">Rebase 代替合并</a></h6><h6><a  href="../advanced-topics/submodules.html#start">子模块</a></h6><h6><a  href="../advanced-topics/git-flow.html#start">git-flow 的工作流程</a></h6><h6><a  href="../advanced-topics/ssh-public-keys.html#start">使用 SSH 公钥验证</a></h6><h4><a  href="../tools-services/desktop-guis.html#start">Part 5 - 工具与服务</a></h4><h6><a  href="../tools-services/desktop-guis.html#start">桌面应用程序</a></h6><h6><a  href="../tools-services/diff-merge-tools.html#start">比较和整合工具</a></h6><h6><a  href="../tools-services/code-hosting.html#start">代码托管服务</a></h6><h6><a  href="../tools-services/learning-resources.html#start">更多学习资源</a></h6><h4><a class="active" href="best-practices.html#start">附录</a></h4><h6><a  href="best-practices.html#start">版本控制的最佳实践</a></h6><h6><a  href="command-line-101.html#start">命令 101</a></h6><h6><a  href="from-subversion-to-git.html#start">从 Subversion 过渡到 Git</a></h6><h6><a class="active" href="why-git.html#start">为什么选择 Git？</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <a href="https://www.git-tower.com/learn/git/ebook/en/desktop-gui/appendix/why-git">Desktop GUI</a> <span>|</span> <strong>Command Line</strong>&nbsp;&nbsp;&nbsp; Language: <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/why-git">EN</a> <span>|</span> <strong>CN</strong>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>为什么选择 Git</h1>
+<p>虽然市场上有几十种不同的版本控制系统，一些世界上最著名的项目（例如 Linux 内核， Ruby on Rails，或是jQuery）都选择了使用 Git 作为它们的版本控制系统。为什么它们都选择 Git 呢？</p>
+<h2>节省时间</h2>
+<p>Git 运行快速。尽管我们在这里讨论的只是运行一个命令所需要的几秒钟，但是把它累积在你的日常工作中就是一个不小的飞跃了。它可以节省那些不必要的等待时间，并且去完成其它一些有意义的工作。</p>
+<h2>离线工作</h2>
+<p>当你不能联机远程中央仓库时你该怎么工作呢？对于一个像 Subversion 或者 CVS 的集中式版本控制系统来说，如果你没有连接到中央仓库，你就不能很好的工作。如果使用 Git ，几乎所有的东西都可以简单地在你的本地机器上完成。例如进行提交，查看你的项目历史，合并或者创建分支等等。至于在哪里工作？什么时候工作？ Git 不会给你施加任何限制。</p>
+<h2>撤销错误操作</h2>
+<p>每个人都会犯错，而使用 Git 的最大好处就在于，几乎在所有的情况下你都能 “撤消” 你的错误操作。比如如果你忘记了把一个小小的改动包含进来，因此你要改正你的上个提交。又或者你想要撤销一个完整的提交，因为这个功能有可能是不必要的。当发生了很严重的错误时，你甚至可以通过恢复引用日志来让一个提交不可见。你可以放心，Git 几乎很少真正地删除数据。</p>
+<h2>可靠性高</h2>
+<p>不用担忧，你不会在 Git 中搞砸任何东西，这种感觉是不是非常好？在你的 Git 项目中的每一个团队成员都克隆了整个项目在他们的本地计算机，这个本地克隆也可以看作一个完整的项目备份。除此之外， Git 上的操作几乎都是进行数据添加，几乎从不删除数据。这意味着丢失数据或是仓库损坏的情况几乎不可能发生。</p>
+<h2>让提交更有意义</h2>
+<p>只有包含了相关的改动的提交才有意义。想象一下，如果一个提交中包括一个新添加的功能 A ，还包括功能 B 的一部分改动，并且还存在一个对错误 C 的修复。这样其他的团队成员就很难理解这个提交的意图，而且当其中的一个改动出现了错误，撤销起来也非常麻烦。利用它独一无二的 “暂存区（staging area）” 概念，Git 可以帮助你打造很细微和精准的提交。你可以准确地判断哪些更改将被包含在你的下一个提交中，即使只是一行改动。Git 真正提高了对版本控制的实用性。</p>
+<h2>更高的自由度</h2>
+<p>当使用 Git 工作时，你可以定义一个对项目和团队有意义的工作流程。使用 Git 也不需要其它的要求。你可以连接多个远程仓库，使用 rebase 来替代合并，或者在需要时可以使用子模块。当然，你也可以简单地像 Subversion 那样仅仅使用一个远程的集中式仓库。无论你使用什么样的工作流程，它都有各种各样的优点。</p>
+<h2>避免混乱</h2>
+<p>关注点分离可以更明确地了解事情的进程。当你工作在功能 A 上时，不应该有任何人受到你未完成的代码的影响。如果那个功能是完全没有必要的话呢？或是完成了对它的一些改动提交后，你注意到你完全错了呢？分支功能就可以解决这些问题。当然其他版本控制系统也都有分支，但是 Git 真正的把它改进地更快速，更简单了。</p>
+<h2>顺应潮流</h2>
+<p>聪明的开发人员应该顺应潮流。Git 正在被越来越多的知名公司和开源项目所使用，如 Ruby On Rails，jQuery，Perl，Debian，Linux 内核等等。拥有一个大型的用户群体是一个很大优势，因为往往会存在很多系统去推动他的发展。大量的教程，工具和服务，这让Git更加具有吸引力。</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="from-subversion-to-git.html#start">Git 对于 Subversion 用户</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    &nbsp;&nbsp  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/cn/command-line/appendix/why-git/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/cn/command-line/appendix/why-git by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:00:28 GMT -->
+</html>

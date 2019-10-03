@@ -1,0 +1,15 @@
+HTTrack3.49-2+htsswf+htsjava launched on Thu, 03 Oct 2019 09:02:25 at https://www.git-tower.com/learn/git/ebook/en/desktop-gui/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.git-tower.com/learn/git/ebook/en/desktop-gui/ -O1 "C:\Users\jashliao\Desktop\git_ebook\desktop-gui\desktop-gui" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+09:02:27	Warning: 	Found for https://www.git-tower.com/learn/git/ebook/en/desktop-gui/
+09:02:27	Warning: 	File has moved from https://www.git-tower.com/learn/git/ebook/en/desktop-gui/ to https://www.git-tower.com/learn/git/ebook/en/desktop-gui/introduction
+09:02:48	Error: 	"Bad Request" (400) at link www.googletagmanager.com/gtm.js?id= (from https://www.git-tower.com/learn/git/ebook/en/desktop-gui/introduction)
+09:03:49	Error: 	"Not Found" (404) at link https://www.git-tower.com/learn/ignore.jpg (from https://www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/starting-with-an-unversioned-project)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 24 seconds : 185 links scanned, 181 files written (13638370 bytes overall) [13024938 bytes received at 155058 bytes/sec], 993367 bytes transferred using HTTP compression in 37 files, ratio 27%, 10.0 requests per connection
+(2 errors, 2 warnings, 0 messages)

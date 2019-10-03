@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/working-on-your-project by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:02:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Working on Your Project</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="working-on-your-project.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="Working on Your Project" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="Working on Your Project" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__en__desktop-gui">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, 'Working on Your Project - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, 'Working on Your Project - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, 'Working on Your Project - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">Introduction</a></h4><h4><a class="active" href="what-is-version-control.html#start">Part 1 - The Basics</a></h4><h6><a  href="what-is-version-control.html#start">What is Version Control?</a></h6><h6><a  href="why-use-version-control.html#start">Why Use Version Control?</a></h6><h6><a  href="getting-ready.html#start">Getting Ready</a></h6><h6><a  href="basic-workflow.html#start">The Basic Workflow</a></h6><h6><a  href="starting-with-an-unversioned-project.html#start">Starting with an Unversioned Project</a></h6><h6><a  href="starting-with-a-remote-project.html#start">Starting with an Existing Project</a></h6><h6><a class="active" href="working-on-your-project.html#start">Working on Your Project</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - Branching &amp; Merging</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">Branching can Change Your Life</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">Working with Branches</a></h6><h6><a  href="../branching-merging/stashing.html#start">Saving Changes Temporarily</a></h6><h6><a  href="../branching-merging/checkout.html#start">Checking Out a Local Branch</a></h6><h6><a  href="../branching-merging/merging.html#start">Merging Changes</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">Branching Workflows</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - Sharing Work via Remote Repositories</a></h4><h6><a  href="../remote-repositories/introduction.html#start">Introduction to Remote Repositories</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">Connecting a Remote Repository</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">Inspecting Remote Data</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">Integrating Remote Changes</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">Publishing a Local Branch</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">Deleting Branches</a></h6></div><div class="rightcol"><h4><a  href="../advanced-topics/undoing-things.html#start">Part 4 - Advanced Topics</a></h4><h6><a  href="../advanced-topics/undoing-things.html#start">Undoing Things</a></h6><h6><a  href="../advanced-topics/diffs.html#start">Inspecting Changes with Diffs</a></h6><h6><a  href="../advanced-topics/merge-conflicts.html#start">Dealing with Merge Conflicts</a></h6><h6><a  href="../advanced-topics/rebase.html#start">Rebase as an Alternative to Merge</a></h6><h6><a  href="../advanced-topics/submodules.html#start">Submodules</a></h6><h6><a  href="../advanced-topics/git-flow.html#start">Workflows with git-flow</a></h6><h6><a  href="../advanced-topics/git-lfs.html#start">Handling Large Files with LFS</a></h6><h6><a  href="../advanced-topics/ssh-public-keys.html#start">Authentication with SSH Public Keys</a></h6><h4><a  href="../tools-services/diff-merge-tools.html#start">Part 5 - Tools &amp; Services</a></h4><h6><a  href="../tools-services/diff-merge-tools.html#start">Diff &amp; Merge Tools</a></h6><h6><a  href="../tools-services/code-hosting.html#start">Code Hosting Services</a></h6><h6><a  href="../tools-services/learning-resources.html#start">More Learning Resources</a></h6><h4><a  href="../appendix/best-practices.html#start">Appendix</a></h4><h6><a  href="../appendix/best-practices.html#start">Version Control Best Practices</a></h6><h6><a  href="../appendix/from-subversion-to-git.html#start">Switching from Subversion to Git</a></h6><h6><a  href="../appendix/why-git.html#start">Why Git?</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <strong>Desktop GUI</strong> <span>|</span> <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/basics/working-on-your-project">Command Line</a>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>Working on Your Project</h1>
+<p>No matter if you created a brand new repository or if you cloned an existing one - you now have a local Git repository on your computer. This means you're ready to start working on your project: use whatever application you want to change, create, delete, move, copy, or rename your files.</p>
+<div class="box concept">
+<h5>Concept</h5>
+<h4>The Status of a File</h4>
+<p>In general, files can have one of two statuses in Git:</p>
+<ul><li>
+<strong>untracked</strong>: a file that is not under version control, yet, is called "untracked". This means that the version control system doesn't watch for (or "track") changes to this file. In most cases, these are either files that are newly created or files that are ignored and which you don't want to include in version control at all.</li>
+<li>
+<strong>tracked</strong>: all files that are already under version control are called "tracked". Git watches these files for changes and allows you to commit or discard them.</li>
+</ul>
+</div>
+<h2>The Staging Area</h2>
+<p>At some point after working on your files for a while, you'll want to save a new version of your project. Or in other words: you'll want to commit some of the changes you made to your tracked files.</p>
+<div class="box rule">
+<h5>The Golden Rules of Version Control</h5>
+<h4>No. 1: Commit Only Related Changes</h4>
+<p>When crafting a commit, it's very important to only include changes that belong together. You should never mix up changes from multiple, different topics in a single commit. For example, imagine wrapping both some work for your new login functionality and a fix for bug #122 in the same commit:</p>
+<ul><li>Understanding what all those changes really mean and do gets hard for your teammates (and, after some time, also for yourself). Someone who's trying to understand the progress of that new login functionality will have to untangle it from the bugfix code first.</li>
+    <li>Undoing one of the topics gets impossible. Maybe your login functionality introduced a new bug. You can't undo just this one without undoing your work for fix #122, also!</li>
+</ul>
+<p>Instead, a commit should only wrap related changes: fixing two different bugs should produce (at the very least) two separate commits; or, when developing a larger feature, every small aspect of it might be worth its own commit.<br />
+Small commits that only contain one topic make it easier for other members of your team to understand the changes - and to possibly undo them if something went wrong.</p>
+</div>
+<p>However, when you're working full-steam on your project, you can't always guarantee that you only make changes for one and only one topic. Often, you work on multiple aspects in parallel.</p>
+<p>This is where the "Staging Area", one of Git's greatest features, comes in very handy: it allows you to determine which of your local changes shall be committed. Because in Git, simply making some changes doesn't mean they're automatically committed. Instead, every commit is "hand-crafted": each change that you  want to include in the next commit has to be marked explicitly ("added to the Staging Area" or, simply put, "staged").</p>
+<figure><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/452967006-1570000299/staging-area-file-status.png" title="A file can have multiple status in version control" width="690"></figure>
+<h2>Getting an Overview of Your Changes</h2>
+<p>Let's have a look at what we've done so far. To get an overview of what you've changed since your last commit, you simply activate the <em>Working Copy</em> view in Tower's sidebar:</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/1414458670-1570000299/01-status_mac.png" width="520"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/-932652300-1570000299/01-status_windows.png" width="500"></figure>
+<p>The list of files shows you all of your recent modifications. Additionally, the colored little icons tell you <em>how</em> the file was changed:</p>
+<ul>
+<li>"M" marks a modification</li>
+<li>"D" marks a deletion</li>
+<li>"?" marks an untracked / new file</li>
+<li>...</li>
+</ul>
+<h2>Getting Ready to Commit</h2>
+<p>Now it's time to craft a commit by staging some changes. You can do so by clicking the checkbox in the "Status" column:</p>
+<figure class="right visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/914055107-1570000299/02-staging_mac.gif"></figure>
+<figure class="right visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/-2011626687-1570000299/02-staging_windows.gif"></figure>
+<p>Note that the colored icons moved to the left side - which means that the contents are staged.</p>
+<p>Assuming that the changes in "icon.png" concerned a different topic than the rest, we've deliberately left  them unstaged. That way, they won't be included in our next commit and simply remain as local changes. We can then continue to work on them and maybe commit them later.</p>
+<h2>Committing Your Work</h2>
+<p>Having carefully prepared the Staging Area, there's only one thing left before we can actually commit: we need a good commit message.</p>
+<div class="box rule">
+<h5>The Golden Rules of Version Control</h5>
+<h4>No. 2: Write Good Commit Messages</h4>
+<p>Time spent on crafting a good commit message is time spent well: it will make it easier to understand what happened for your teammates (and after some time also for yourself).</p>
+<p>Begin your message with a short summary of your changes (up to 50 characters as a guideline). Separate it from the following body by including a blank line. The body of your message should provide detailed answers to the following questions: What was the motivation for the change? How does it differ from the previous version?</p>
+</div>
+<figure class="right visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/1875924536-1570000299/03-commit_mac.png" width="300"></figure>
+<figure class="right visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/718835190-1570000299/03-commit_windows.png" width="298"></figure>
+<p>Enter your message in the commit message's subject field.</p>
+<p>If you have more to say, you can use the body field to enter an detailed description about what you did.</p>
+<p>Finally, confirm the commit by clicking the "Commit" button.</p>
+<hr style="clear:right; visibility:hidden;" />
+<div class="box concept">
+<h5>Concept</h5>
+<h4>What Makes a Good Commit?</h4>
+<p>The better and more carefully you craft your commits, the more useful will version control be for you. Here are some guidelines about what makes a good commit:</p>
+<ol><li>
+Related Changes<br>
+As stated before, a commit should only contain changes from a single topic. Don't mix up contents from different topics in the same commit. This will make it harder to understand what happened.
+</li>
+<li>
+Completed Work<br>
+Never commit something that is half-done. If you need to save your current work temporarily in something like a clipboard, you can use Git's "Stash" feature (which will be discussed later in the book). But don't eternalize it in a commit.
+</li>
+<li>
+Tested Work<br>
+Related to the point above, you shouldn't commit code that you <b>think</b> is working. Test it well - and before you commit it to the repository.
+</li>
+<li>
+Short &amp; Descriptive Messages<br>
+A good commit also needs a good message. See the paragraph above on how to "Write Good Commit Messages" for more about this.
+</li>
+</ol>
+<p>Finally, you should make it a habit to commit <b>often</b>. This will automatically help you to keep your commits small and only include related changes.</p>
+</div>
+<h2>Inspecting the Commit History</h2>
+<p>Git saves every commit that is ever made in the course of your project. Especially when collaborating with others, it's important to see recent commits to understand what happened.</p>
+<div class="box note">
+<h5>Note</h5>
+<p>Later in this book, in the "<a href="../remote-repositories/introduction.html">Sharing Work via Remote Repositories</a>" chapter, we‘ll talk about how to exchange data with your coworkers.</p>
+</div>
+<p>Activate the <strong>History</strong> view in Tower's sidebar to display the project's commit history. It lists the commits in chronological order, beginning with the newest item:</p>
+<figure class="visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/-448360270-1570000299/04-history_mac.png" width="690"></figure>
+<figure class="visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/392722169-1570000299/04-history_windows.png" width="690"></figure>
+<p>Every commit item consists (amongst other things) of the following metadata:</p>
+<ul>
+<li>Commit Hash</li>
+<li>Author Name &amp; Email</li>
+<li>Date</li>
+<li>Commit Message</li>
+</ul>
+<div class="box glossary">
+<h5>Glossary</h5>
+<h4>The Commit Hash</h4>
+<p>Every commit has a unique identifier: a 40-character checksum called the "commit hash". While in centralized version control systems like Subversion or CVS, an ascending revision number is used for this, this is simply not possible anymore in a distributed VCS like Git: The reason herefore is that, in Git, multiple people can work in parallel, <b>committing</b> their work <b>offline</b>, without being connected to a shared repository. In this scenario, you can't say anymore whose commit is #5 and whose is #6.</p>
+<p>Since in most projects, the first 7 characters of the hash are enough for it to be unique, referring to a commit using a shortened version is very common.</p>
+</div>
+<figure class="right visible-on--mac"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/-534327896-1570000299/05-diff-in-changeset_mac.png" width="389"></figure>
+<figure class="right visible-on--windows"><img alt="" src="../../../../../media/pages/git/ebook/en/desktop-gui/basics/working-on-your-project/1497359305-1570000299/05-diff-in-changeset_windows.png" width="367"></figure>
+<p>Apart from this metadata, Git also allows you to inspect the detailed changes that happened in each commit:</p>
+<p>Later in this book, we'll learn how to interpret this kind of output in the chapter "<a href="../advanced-topics/diffs.html">Inspecting Changes in Detail with Diffs</a>".</p>
+<h2>Time to Celebrate</h2>
+<p>Congratulations! You've just taken the first step in mastering version control with Git! Pat yourself on the back and grab a beer before moving on.</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="starting-with-a-remote-project.html#start">Cloning a Remote Project</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    <a href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - Branching & Merging</a>  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/en/desktop-gui/basics/working-on-your-project/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/working-on-your-project by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:02:59 GMT -->
+</html>

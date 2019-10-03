@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/submodules by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:00:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>子模块</title>
+
+    <!-- Google Optimize - Page hiding snippet (recommended)  -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-PCW7SXL':true});</script>
+    <!-- Modified Analytics tracking code with Optimize plugin -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','../../../../../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-9752864-4', 'auto');  // Update tracker settings
+      ga('require', 'GTM-PCW7SXL');         // Optimize Container
+      // Remove pageview call!
+    </script>
+
+    <!-- Search Engines + Open Graph -->
+    <link rel="canonical" href="submodules.html">
+    <meta name="description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="keywords" content="git, version control, vcs, tutorial, help, learn, ebook, video, subversion" />
+
+<meta property="og:title" content="子模块" />
+<meta property="og:image" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+<meta property="og:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@fournova" />
+<meta name="twitter:title" content="子模块" />
+<meta name="twitter:description" content="Our learn section helps you get started with various web and software skills. Free online books, videos, and ebooks get you off the ground as quickly as possible." />
+<meta name="twitter:image:src" content="https://assets.git-tower.com/learn/assets/img/social/learn_og_image@2x.1570000299.png" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.git-tower.com/learn/assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS inclusions -->
+    <link rel="stylesheet" href="../../../../../../../assets.git-tower.com/learn/assets/css/content.min.1570000299.css" />
+    <!-- Javascript inclusions -->
+    <script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="../../../../../../../assets.git-tower.com/learn/assets/js/content.min.1570000299.js"></script>    <script type="text/javascript">
+  (function() {
+    var config = {
+      kitId: 'bbe4dgk'
+    };
+    $.ajax({
+      url: '//use.typekit.net/' + config.kitId + '.js',
+      dataType: 'script',
+      cache: true,
+      success: function() {
+        try { Typekit.load(config); } catch (e) {}
+      }
+    });
+  })();
+</script>
+        
+  </head>
+
+  <body class="body--default body--git__ebook__cn__command-line">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-PQTPB9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQTPB9');</script>
+    <!-- End Google Tag Manager -->
+<nav id="navigation" class="section light">
+	<div class="frame">
+		<div class="tower-branding hide--small">
+		  <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">
+        <img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"><img class="tower-claim" src="https://assets.git-tower.com/learn/assets/img/tower-logo-claim.1570000299.svg">
+      </a>
+		</div>
+		<ul class="main-navigation">
+			<li><a href="https://www.git-tower.com/learn/home">Home</a></li>
+			<li><a href="https://www.git-tower.com/blog/?utm_source=learn-website&amp;utm_medium=navigation" target="_blank">Blog</a></li>
+
+			<li class="more-content">
+				<a href="#"><span>More Learning Content</span></a>
+
+				<ul>
+  				<li class="dropdown__item--title">Git</li>
+  				<li><a href="https://www.git-tower.com/learn/git/ebook">ebook</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/videos">videos</a></li>
+          <li><a href="https://www.git-tower.com/learn/git/webinar">webinars</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/first-aid-kit">First Aid Kit</a></li>
+  				<li><a href="https://www.git-tower.com/learn/git/faq">FAQ</a> | <a href="https://www.git-tower.com/learn/git/glossary">Glossary</a> | <a href="https://www.git-tower.com/learn/git/commands">Commands</a></li>
+  				<li class="dropdown__item--title">Web Development</li>
+  				<li><a href="https://www.git-tower.com/learn/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/bourbon-neat-bitters">Bourbon, Neat, and Bitters</a></li>
+  				<li><a href="https://www.git-tower.com/learn/build-your-own-blog">Design &amp; develop your own blog</a></li>
+  				<li class="dropdown__item--title">Cheat Sheets</li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git">Git</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/git-for-svn">Git for Subversion Users</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/vcs-workflow">Workflow of Version Control</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/website-optimization">Website Optimization</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/tower">Tower Git Client</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/xcode">Xcode</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/cli">Command Line 101</a></li>
+  				<li><a href="https://www.git-tower.com/learn/cheat-sheets/bourbon-neat-bitters">Bourbon, Bitters, and Neat</a></li>
+				</ul>
+      </li>
+
+		</ul>
+	</div>
+</nav><div id="header" class="section dark">
+	<div class="frame">
+    <h1 class="header__headline">Learn Version Control with Git</h1><h2 class="header__subline">A step-by-step course for the complete beginner</h2><div class="keyvisual"></div>
+<style type="text/css">
+.keyvisual {
+  background-image:url(../../../../../../../assets.git-tower.com/learn/assets/img/keyvisual/ebook_dark.1570000299.png);
+}
+</style>
+	</div>
+</div>
+
+
+
+<aside id="sharing-sidebar">
+  <a class="button social-button--twitter analytics--click" onclick="FN.socialShare('twitter', false, '子模块 - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--facebook analytics--click" onclick="FN.socialShare('facebook', false, '子模块 - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+  <a class="button social-button--linkedin analytics--click" onclick="FN.socialShare('linkedin', false, '子模块 - Learn Git with the free online book. ');" href="javascript:void(0);"></a>
+</aside>
+
+<div id="read" class="section bright">
+	<div class="frame">    
+		<div id="content">
+			<a name="start"></a>
+      
+<div class="nav top">
+	<div class="left">
+		<a class="contents" href="#">Table of Contents</a>
+		<div class="dropdown">
+			<div class="leftcol">
+        <h4><a  href="../introduction.html#start">前言</a></h4><h4><a  href="../basics/what-is-version-control.html#start">Part 1 - 基础知识</a></h4><h6><a  href="../basics/what-is-version-control.html#start">什么是版本控制？</a></h6><h6><a  href="../basics/why-use-version-control.html#start">为什么要使用版本控制系统？</a></h6><h6><a  href="../basics/getting-ready.html#start">准备工作</a></h6><h6><a  href="../basics/basic-workflow.html#start">基本工作流程</a></h6><h6><a  href="../basics/starting-with-an-unversioned-project.html#start">从一个未被纳入版本控制的项目开始</a></h6><h6><a  href="../basics/starting-with-a-remote-project.html#start">从一个已被纳入版本控制的项目开始</a></h6><h6><a  href="../basics/working-on-your-project.html#start">工作在你的项目上</a></h6><h4><a  href="../branching-merging/branching-can-change-your-life.html#start">Part 2 - 分支与合并</a></h4><h6><a  href="../branching-merging/branching-can-change-your-life.html#start">分支可以改变你的生命</a></h6><h6><a  href="../branching-merging/working-with-branches.html#start">在分支上工作</a></h6><h6><a  href="../branching-merging/stashing.html#start">暂时保存更改</a></h6><h6><a  href="../branching-merging/checkout.html#start">签出一个本地分支</a></h6><h6><a  href="../branching-merging/merging.html#start">合并改动</a></h6><h6><a  href="../branching-merging/branching-workflows.html#start">分支的工作流程</a></h6><h4><a  href="../remote-repositories/introduction.html#start">Part 3 - 远程仓库</a></h4><h6><a  href="../remote-repositories/introduction.html#start">远程仓库</a></h6><h6><a  href="../remote-repositories/connecting-remote-repositories.html#start">连接一个远程仓库</a></h6><h6><a  href="../remote-repositories/inspecting-remote-data.html#start">查看远程数据</a></h6><h6><a  href="../remote-repositories/integrating-remote-changes.html#start">整合远程的改动</a></h6><h6><a  href="../remote-repositories/publish-local-branch.html#start">发布一个本地分支</a></h6><h6><a  href="../remote-repositories/deleting-branches.html#start">删除分支</a></h6></div><div class="rightcol"><h4><a class="active" href="undoing-things.html#start">Part 4 - 高级应用</a></h4><h6><a  href="undoing-things.html#start">撤销操作</a></h6><h6><a  href="diffs.html#start">用 diff 检查改动</a></h6><h6><a  href="merge-conflicts.html#start">处理合并冲突</a></h6><h6><a  href="rebase.html#start">Rebase 代替合并</a></h6><h6><a class="active" href="submodules.html#start">子模块</a></h6><h6><a  href="git-flow.html#start">git-flow 的工作流程</a></h6><h6><a  href="ssh-public-keys.html#start">使用 SSH 公钥验证</a></h6><h4><a  href="../tools-services/desktop-guis.html#start">Part 5 - 工具与服务</a></h4><h6><a  href="../tools-services/desktop-guis.html#start">桌面应用程序</a></h6><h6><a  href="../tools-services/diff-merge-tools.html#start">比较和整合工具</a></h6><h6><a  href="../tools-services/code-hosting.html#start">代码托管服务</a></h6><h6><a  href="../tools-services/learning-resources.html#start">更多学习资源</a></h6><h4><a  href="../appendix/best-practices.html#start">附录</a></h4><h6><a  href="../appendix/best-practices.html#start">版本控制的最佳实践</a></h6><h6><a  href="../appendix/command-line-101.html#start">命令 101</a></h6><h6><a  href="../appendix/from-subversion-to-git.html#start">从 Subversion 过渡到 Git</a></h6><h6><a  href="../appendix/why-git.html#start">为什么选择 Git？</a></h6>
+			</div>
+		</div>
+	</div>
+  
+	<div class="right">
+    Learn on: <a href="https://www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/submodules">Desktop GUI</a> <span>|</span> <strong>Command Line</strong>&nbsp;&nbsp;&nbsp; Language: <a href="https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/submodules">EN</a> <span>|</span> <strong>CN</strong>  </div>
+</div>
+			<div id="chapter">
+        
+        <h1>子模块</h1>
+<p>在项目开发时，你有可能经常性地想要去引用一些库文件或其它资源文件。手动的方法就是直接下载那些必要的代码文件，然后拷贝到你的项目中，最后将这些新的文件提交到你的 Git 仓库中去。</p>
+<p>虽然这是一种有效的方法，但是这种操作并不是最简单有效的。如果只是任意地将这些库文件提交到你的项目中，将带来一系列的问题：</p>
+<ul>
+<li>外部代码和自己开发的代码会被合并保存在一个项目中。其实那些库文件自身就应该是一个项目，并且也应该独立于我们的工作之外。在我们当前项目的版本控制系统中，它们并不需要被保存。</li>
+<li>如果库文件发生了变化（可能因为修复错误或是添加新的功能），更新这些库文件的代码对我们来说会是很繁琐的事。我们需要再次下载它的原代码文件，并且替换掉在仓库中已有的文件。</li>
+</ul>
+<p>由于这些都是在日常项目开发时非常普遍存在的问题，所以 Git 也提供了一个解决方案：子模块（Submodule）。</p>
+<h2>仓库包含其它的仓库</h2>
+<p>一个 “子模块” 其实就是一个标准的 Git 仓库。不同的是，它被包含在另一个主项目的仓库中。一般情况下，它包含一些库文件和其它资源文件，你可以简单地把这些库文件作为一个子模块添加到你的主项目中。</p>
+<p>一个子模块也是一个功能齐全的 Git 仓库，就内部而言它和别的仓库没有什么区别，你可以对它进行修改、提交、抓取、推送等等操作。</p>
+<p>让我们来看看在实际操作中子模块是如何工作的吧。</p>
+<h2>添加一个子模块</h2>
+<p>在这个简单的项目中，我们建立一个新的 “lib” 文件目录用来存放一些库文件。</p>
+<pre><code>$ mkdir lib
+$ cd lib</code></pre>
+<p>使用 “git submodule add” 命令，我们会从 GitHub 中添加一个小的 Javascript 库：</p>
+<pre><code>$ git submodule add https://github.com/djyde/ToProgress</code></pre>
+<p><br /><br />
+来让我们来看看现在发生了什么：</p>
+<ul>
+<li>(1) 这个命令将对一个指定的 Git 仓库进行了一个简单地克隆操作：</li>
+</ul>
+<pre>
+<code>Cloning into 'lib/ToProgress'...
+remote: Counting objects: 180, done.
+remote: Compressing objects: 100% (89/89), done.
+remote: Total 180 (delta 51), reused 0 (delta 0), pack-reused 91
+Receiving objects: 100% (180/180), 29.99 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (90/90), done.
+Checking connectivity... done.
+</code>
+</pre>
+<ul>
+<li>(2)  当然这一切也都会反映在我们当前项目的文件结构上。在项目中的 “lib” 目录中包括了一个新的 “ToProgess” 文件目录。通过这个文件目录所包含的 “.git” 子文件夹我们就能确认，这就是一个标准的 Git 仓库。<figure><img alt="" src="../../../../../media/pages/git/ebook/cn/command-line/advanced-topics/submodules/699727951-1570000299/01-library-files-after-adding-submodule.png"></figure>
+</li>
+</ul>
+<div class="box concept">
+<h5>概念不保存在它的父仓库中。其实只有它的远程 URL 会被记录在父仓库中，以及它在主项目中的本地路径和签出的版本。</h5>
+<p>当然，子模块的工作文件都放置在你项目的指定的目录中。最后当你要使用这些库文件时，你会发现它们并不是主项目的版本控制的一部分。</p>
+</div>
+<p><br /></p>
+<ul>
+<li>(3) 一个新的 “.gitmodules” 文件会被创建。这个文件就是 Git 用来跟踪我们的子模块并保存它的配置信息的：</li>
+</ul>
+<pre>
+<code>[submodule "lib/ToProgress"]
+    path = lib/ToProgress
+    url = https://github.com/djyde/ToProgress
+</code>
+</pre>
+<ul>
+<li>(4) 你可能会对 Git 的内部工作原理感兴趣。除了 “.gitmodules” 配置文件，Git 也会在你本地的 “.git/config” 文件中保存对子模块的记录。最终它也会在它的 “.git/modules” 目录中保存每一个子模块的 “.git” 仓库。</li>
+</ul>
+<div class="box concept">
+<h5>概念</h5>
+<p>Git 内部对子模块的管理是非常复杂的，就像你已经看到的那些 “.gitmodules”，“.git/config”，和 “.git/modules” 等等的条目那样。因此，这里强烈<strong>不建议</strong>你去手动地修改这些配置文件。为了安全起见，一定要使用适当的 Git 命令来操作子模块。</p>
+</div>
+<p><br /><br />
+现在让我们来看看当前的项目状态：</p>
+<pre>
+<code><span class="cli-prompt">$ git status</span>
+On branch master
+Changes to be committed:
+    (use "git reset HEAD <file>..." to unstage)
+
+    <span class="cli-green">new file:   .gitmodules</span>
+    <span class="cli-green">new file:   lib/ToProgress</span>
+
+</file></code>
+</pre>
+<p>像任何其他修改一样， Git 添加了一个子模块，并且要求你提交这个改动到仓库中：</p>
+<pre><code>$ git commit -m "Add 'ToProgress' Javascript library as Submodule"</code></pre>
+<p>现在，我们已经成功地添加了一个子模块到我们主项目中来了！在了解几个不同的案例之前，让我们先来看看如何克隆一个已经包括了若干子模块的项目。</p>
+<h2>克隆一个项目和它的子模块</h2>
+<p>你已经知道了，一个项目仓库并_不_包含子模块的文件。主项目仓库仅仅保存子模块的_配置信息_来作为版本管理的一部分。<br />
+这就表示，当你要克隆一个带有子模块的项目时，在默认的情况下 “git clone” 命令仅仅接收这个项目本身。我们的 “lib” 只是一个空目录，里面没有任何文件。</p>
+<p>你有两个选择去设置这个 “lib” 目录（或者是任何一个你保存的其他子模块，“lib” 在这里只是一个例子)：</p>
+<ul>
+<li>
+<p>(a) 你可以通过将 “--recurse-submodules” 参数加在 “git clone” 上，从而让 Git 知道，当克隆完成的时候要去初始化所有的子模块。</p>
+</li>
+<li>
+<p>(b) 如果你仅仅只是简单地使用了 “git clone” 命令，并没有附带任何参数，你就需要在完成之后通过 “git submodule update --init --recursive” 命令来初始化那些子模块。</p>
+</li>
+</ul>
+<h2>签出一个版本</h2>
+<p>一个 Git 仓库可以保存无限多个提交版本，但是仅仅只有一个文件版本能保存在你当前的工作副本中。就像任何其他的 Git 仓库一样，你必须自己来决定在子模块上的哪一个版本应该被签出到你的工作副本中。</p>
+<div class="box concept">
+<h5>概念</h5>
+<p>和一个普通的 Git 仓库不一样的是，子模块永远指向一个特定的提交，而不是分支。这是因为一个分支的内容可以在任何时间通过新的提交来改变。所以指向一个特定的提交版本就能始终保证代码的正确。</p>
+</div>
+<p>比方说，我们希望在我们项目中使用一个旧版本的 “ToProgress” 库。首先，我需要看一下这个库的提交历史记录。我们需要切换到这个子模块的根目录下，然后执行 “log” 命令：</p>
+<pre><code>$ cd lib/ToProgress/
+$ git log --oneline --decorate</code></pre>
+<p>在我们来检查实际的历史记录之前，有一点我想强调一下：Git 命令是对上下文环境很敏感的！也就是说，通过命令行来切换到子模块的目录后，我们执行的所有 Git 命令仅仅只会对子模块有效，而不是对它的父仓库。</p>
+<p>现在历史记录被打印出来了，我们会发现这个提交被标记成了 “0.1.1”：</p>
+<pre>
+<code>83298f7 (HEAD, master) update .gitignore
+a3b6186 remove page
+ed693b7 update doc
+<span class="cli-green">3557a0e (tag: 0.1.1) change version code</span>
+2421796 update readme
+</code>
+</pre>
+<p>这就是我们希望在我们的项目使用的版本。首先我们可以来简单地看看这个提交：</p>
+<pre><code>$ git checkout 0.1.1</code></pre>
+<p>再让我们来看看父仓库。在主项目的目录中执行下面的命令：</p>
+<pre><code>$ git submodule status
++3557a0e0f7280fb3aba18fb9035d204c7de6344f   lib/ToProgress (0.1.1)</code></pre>
+<p>通过使用 “git submodule status”，我们可以查看子模块的哪一个版本在当前被签出了。在 hash 之前的 “+” 符号是非常重要的，它表明该子模块在它父仓库的官方记录中存在一个<strong>不同</strong>的版本。这是合理的，因为我们的确修改并签出了版本标记为 “0.1.1” 的提交。</p>
+<p>如果在父仓库上执行 “git status” 命令，我们就会发现像任何其他的变化一样，Git 移动了指向这个子模块的指针：</p>
+<pre>
+<code><span class="cli-prompt">$ git status</span>
+On branch master
+Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
+
+    <span class="cli-red">modified:   lib/ToProgress</span> (new commits)
+</file></file></code>
+</pre>
+<p>为了使这个改动生效，我们现在需要提交它到仓库中：</p>
+<pre><code>$ git commit -a -m "Moved Submodule pointer to version 1.1.0"</code></pre>
+<h2>更新一个子模块，当指向它的指针发生了变化之后</h2>
+<p>我们看到了如何签出一个子模块的特定版本。但是，如果是开发团队的其他成员在项目中改变了对子模块的指针呢？当他移动了指向子模块的指针到另一个版本之后，我们就要整合他的改动，例如通过抓取，合并，或是 rebase ：</p>
+<pre>
+<code><span class="cli-prompt">$ git pull</span>
+Updating 43d0c47..3919c52
+Fast-forward
+ lib/ToProgress | 2 <span class="cli-green">+</span><span class="cli-red">-</span>
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code>
+</pre>
+<p>Git 会以一个相当含蓄的方式告诉我们，“lib/ToProgress” 发生了变化。再次使用 “git submodule” 命令来索取更多和更细节的信息：</p>
+<pre><code>$ git submodule status
++83298f72c975c29f727c846579c297938492b245 lib/ToProgress (0.1.1-8-g83298f7)</code></pre>
+<p>还记得那个小的 “+” 符号吗？这表明子模块发生了变化，我们当前签出的子模块版本不是主项目使用的中的 “官方” 版本。</p>
+<p>使用 “update” 命令可以帮助我们修正它：</p>
+<pre><code>$ git submodule update lib/ToProgress
+Submodule path 'lib/ToProgress': checked out '3557a0e0f7280fb3aba18fb9035d204c7de6344f'</code></pre>
+<div class="box note">
+<h5>注释</h5>
+<p>在大多数情况下，使用 “git submodule” 家族的命令是不需要指定一个特定子模块的。但是正如上面的例子一样，如果我们给出一个子模块的路径，这个操作就只会针对那个给定的子模块。</p>
+</div>
+<p>现在我们签出了相同版本的子模块，这就是之前另一个团队成员提交到项目中的那个。</p>
+<p>值得注意的是，“update” 命令会为你下载子模块的改动。设想一下，你的队友在你之前已经改变了指向子模块版本的指针。在这种情况下，Git 会为你获取在子模块的相应版本，并且签出这个子模块的版本，非常方便。</p>
+<h2>检查子模块的最新变化</h2>
+<p>正常情况下，你是不会经常改变库文件的代码的。如果这个子模块被真正地测试过，并且你也知道它非常匹配你的开发项目时，你才会使用它。<br />
+无论如何，子模块功能最大优点之一就是你可以很方便地与最新的发行版本同步（也许只是同步一个小小的优化）。</p>
+<p>让我们来看看子模块是否提供了新的代码版本：</p>
+<pre><code>    $ cd lib/ToProgress
+    $ git fetch
+    remote: Counting objects: 3, done.
+    remote: Compressing objects: 100% (3/3), done.
+    remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (3/3), done.
+    From https://github.com/djyde/ToProgress
+        83298f7..3e20bc2  master     -&gt; origin/master</code></pre>
+<p>请注意！现在我们切换到了子模块的文件夹，之后的操作就像对待任何一个普通的项目仓库一样（因为它就是一个普通的 Git 仓库）。<br />
+现在 “git fetch” 命令显示，当前的确存在一些新的改动在子模块的远程上。</p>
+<div class="box concept">
+<h5>概念</h5>
+<p>在我们准备整合这些改动之前，我想再次重申一下。当检查这个子模块的状态时，我们会发现我们正处在一个<strong>detached HEAD</strong>上：</p>
+<pre><code><span class="cli-prompt">$ git status</span>
+    <span class="cli-red">HEAD detached at</span> 3557a0e
+    nothing to commit, working directory clean
+</code></pre>
+<p>一般情况下，在 Git 中你总是会签出某个分支。然而你也<em>可以</em>选择签出一个特定的<b>提交</b>（而<b>不是</b>一个分支）。这是一种比较罕见的情况，在 Git 中通常应该避免。</p>
+<p>然而在子模块上工作时，签出某个提交的情况是非常正常的。你要确保在你的项目中，签出一个确切的静态的提交（不是一个分支），并转移到一个较新的提交上。</p>
+</div>
+<p><br /><br />
+现在让我们通过拉取操作来整合那些新的改动到你的本地子模块仓库中吧。请注意！你不能使用那个简写的 “git pull” 命令语法，而是需要指定特定的远程和分支。</p>
+<p>这是因为我们正处于 “detached HEAD” 状态。因为在这个时刻你不是在本地分支上，你需要告诉 Git，你想要把拉取出来的改动整合到哪一个分支上去。</p>
+<pre><code>$ git pull origin master</code></pre>
+<p>如果你现在已经执行过一遍 “git status” 命令了，你会发现我们的状态仍然处于 detached HEAD，并且在同一个提交上，当前被签出的内容并没有发生改变。如果我们在项目中想要使用这个升级后的子模块的代码，我们必须明确地将 HEAD 指针移动到分支上：</p>
+<pre><code>$ git checkout master</code></pre>
+<p>我们已经完成了在子模块上的工作，现在让我们切换回我们主项目吧：</p>
+<pre><code>$ cd ../..
+$ git submodule status
++3e20bc25457aa56bdb243c0e5c77549ea0a6a927 lib/ToProgress (0.1.1-9-g3e20bc2)</code></pre>
+<p>由于我们刚刚移动了子模块的指针到了一个不同的版本，我们需要将这个改动提交到父仓库中去，从而让它成为主项目当前正式引用的 “官方” 版本。</p>
+<h2>在子模块中工作</h2>
+<p>有些时候，你可能会想要在子模块中作一些自己的改动。你已经知道了在子模块中工作就和在一个普通的 Git 仓库中工作一样，你在子模块目录中执行的所有的 Git 命令只会对这个子模块仓库有效。</p>
+<p>比方说，你想对子模块进行一个小小的改动，你编辑了相关的文件，把它们添加到暂存区，并且提交它。</p>
+<p>现在你可能会踩到第一块香蕉皮。因为如果当前你正处于一个 detached HEAD 状态，你的提交会迷失方向，它并没有关联到任何一个分支。一旦你签出了其他的东西，它的内容就会丢失。所以你应该在提交之前确保，你当前已经在子模块中签出了一个分支。</p>
+<p>除此之外，你已经学到的其它一切 Git 操作都仍然适用。在主项目中 “git submodule status” 会告诉你指向该子模块的指针被移动了，你必须提交这个改动。</p>
+<p>顺便提一下，如果你的子模块中还有_未提交_的改动，Git 也会在主项目中提醒你：</p>
+<pre><code><span class="cli-prompt">$ git status</span>
+...
+    <span class="cli-red">modified:   lib/ToProgress</span> (modified content)
+</code></pre>
+<p>请务必始终保持子模块有一个干净的状态。</p>
+<h2>删除一个子模块</h2>
+<p>尽管很少会从项目中删除一个子模块，但是如果你确定想要这么做，也请不要手动地删除它，一旦所的有配置文件被打乱，将会不可避免地导致出现一系列问题。</p>
+<pre><code><span class="cli-prompt">$ git submodule deinit lib/ToProgress</span>
+$ git rm lib/ToPogress
+$ git status
+...
+    <span class="cli-red">modified:   .gitmodules</span>
+    <span class="cli-red">deleted:    lib/ToProgress</span>
+</code></pre>
+<p>使用 “git submodule deinit”，我们可以确保从配置文件中完全地删除一个子模块。<br />
+使用 “git rm” ，我们可以最终删除这个子模块的文件，包括一些其它废弃的部分。</p>
+<p>提交这些改动，这个子模块就会从你的项目中被彻底地删除了。</p>        
+      </div>
+      <div class="nav bottom sans">
+    
+	<div class="left">
+    <a href="rebase.html#start">Rebase</a>  </div>
+	<div class="center">
+    <a href="#">Contents</a>
+  </div>
+	<div class="right">
+    <a href="git-flow.html#start">git-flow 的工作流程</a>  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="section dark signup--cheatsheet-package_huge">
+	<div class="frame">
+		<h4>Get our popular <b>Git Cheat Sheet</b> for free!</h4>
+		<div class="signup--image">
+      <img src="../../../../../assets/img/popups/cheat-sheet-illu-huge.png">
+    </div>
+    <div class="signup--text">
+      <p>You'll find the most important commands on the front and helpful best practice tips on the back. Over 100,000 developers have downloaded it to make Git a little bit easier.</p>
+      <form class="newsletter-form analytics--submit"  autocomplete="off">
+      <input type="hidden" name="signupForm" value="7" />
+        <input type="hidden" name="lists[]" value="tower-newsletter" />
+  
+    <div class="newsletter-form__groups">
+        <div class="row"  style="display:none" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="tower_newsletter" checked="checked" id="signup-tag__tower_newsletter"  />New content and updates</label>
+    </div>
+        <div class="row" >
+      <label><input class="signup-tag__item" name="tags[]" type="checkbox" value="incentive_cheatpackage"  id="signup-tag__incentive_cheatpackage" data-required="true" />Yes, send me the cheat sheet and sign me up for the Tower newsletter. It's free, it's sent infrequently, you can unsubscribe any time.</label>
+    </div>
+      </div>
+  
+    <div class="newsletter-form__consent">
+        <label><input type="checkbox" id="consent--legal" class="consent__item consent__text" data-required="1" />I have read and accept the <a href="https://www.git-tower.com/legal/privacy-policy" target="_blank">Privacy Policy</a>. I understand that I can unsubscribe at any time.</label>
+      </div>
+  
+  <div class="newsletter-form__signup">
+    <input type="text" name="email" placeholder="Your email address" />
+    <input type="submit" value="" class="newsletter-form__signup-button" />
+  </div>
+
+    <input type="hidden" name="signup[medium]" value="learn-website" />
+      <input type="hidden" name="signup[URI]" value="git/ebook/cn/command-line/advanced-topics/submodules/cheatsheet-package_huge" />
+      <input type="hidden" name="signup[OS]" value="" />
+    <div class="request-notice"></div>
+</form>
+		</div>
+  </div>
+</div>
+<div id="about" class="section bright">
+	<div class="frame">
+		<h2>About Us</h2>
+		<a class="icon-wrap analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank"><img class="tower-icon" src="https://assets.git-tower.com/learn/assets/img/tower-icon.1570000299.svg"></a>
+		<div class="sans">
+			<p>As the makers of <a class="analytics--click" href="https://www.git-tower.com/?utm_source=learn-website&amp;utm_medium=about-us&amp;utm_campaign=learn-git" target="_blank">Tower</a>, the best Git client for Mac and Windows, we help over 100,000 users in companies like Apple, Google, Amazon, Twitter, and Ebay get the most out of Git.</p>
+			<p>Just like with Tower, our mission with this platform is to help people become better professionals.</p>
+      <p>That's why we provide our guides, videos, and cheat sheets (about version control with Git and lots of other topics) for free.</p>
+		</div>
+		<div class="footer">
+			<div class="sprite-general logo-fournova bright"></div>
+			<h6 class="sans"><p>Copyright &copy; 2013-2019 fournova Software GmbH | <a href="https://www.git-tower.com/legal/imprint">Imprint</a> | <a href="https://www.git-tower.com/legal/privacy-policy">Privacy Policy</a></p></h6>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<!-- Mirrored from www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/submodules by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Oct 2019 01:00:26 GMT -->
+</html>
